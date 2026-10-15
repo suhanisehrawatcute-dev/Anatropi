@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    background-color: #000;
+    overflow: hidde !important;
+}
+
+.stars {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: #fff;
+    z-index: 2;
+}
