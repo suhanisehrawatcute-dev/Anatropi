@@ -1,5 +1,4 @@
-
-const stars = 1;
+const stars = 100;
 
 function randomPosition() {
   const x = Math.random() * window.innerWidth;
