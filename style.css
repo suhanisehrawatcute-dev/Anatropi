@@ -1,0 +1,164 @@
+body {
+    margin: 0; 
+    padding: 0;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Libre Franklin", sans-serif;
+    perspective: 240px;
+    perspective-origin: center 15%;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: no-repeat center/cover url("https://cdn.wallpapersafari.com/38/0/tNfnSd.png");
+    z-index: -1;
+}
+
+.fade {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 40vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 25%,
+        rgba(0, 0, 0, 0.25) 75%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 10;
+    pointer-events: none;
+}
+
+.text-container {
+    position: relative;
+   width: 100%;  
+   height: 100%;
+   transform: rotateX(64deg) scale(0.55, 0.3) translateY(120vh);
+animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysMom;}
+@keyframes StacysMom {
+     100% { opacity: 0; }
+    75% { opacity: 1; }
+    25% { opacity: 1; }
+    0% { opacity: 1;}
+}
+.text {
+   font-size: 5vh;
+   color: #face1d;
+   text-align: justify;
+}
+
+@keyframes translateText {
+    0% {
+         transform: rotateX(64deg) scale(0.55, 0.3) translateY(120vh); 
+    }
+    100% {
+           transform: rotateX(64deg) scale(0.55, 0.3) translateY(-400vh);
+    }
+}
+.long-time {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #b9eaff;
+    font-family: Arial, sans-serif;
+    font-size: clamp(24px, 4vw, 48px);
+    line-height: 1.5;
+    opacity: 0;
+    z-index: 5;
+    animation: longTime 6s ease-in-out 1s forwards;
+}
+
+@keyframes longTime {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0;}
+}
+
+.title-card {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color:#ffe81d;
+    font-family: Arial Black, Impact, sans-serif;
+    font-size: clamp(70px, 15vw, 180px);
+    line-height: 0.75;
+    -webkit-text-stroke: 2px #ffe81f;
+    opacity: 0;
+    z-index: 11;
+    animation: titleZoom 5s ease-in 7s forwards;
+}
+@keyframes titleZoom {
+    0% {
+        opacity: 0;
+        transform: scale(3);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(3);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.05);
+
+    }
+}
+.town-start {
+    position: fixed;
+    inset:0;
+    background-image: url(https://plain-apac-prod-public.komododecks.com/202610/18/dyxzSSGFxjdmns2sAP0a/image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 1;
+    animation: OMGitsarandomtown 0.1s linear 93.3s forwards;
+}
+@keyframes OMGitsarandomtown {
+    to {opacity: 1;}
+}
+.screen-fade {
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    animation: sceneTransition 5s ease-in 90s forwards;
+}
+@keyframes sceneTransition {
+    0% { opacity: 0; }
+    33% { opacity: 1; }
+    66% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.elera {
+    background-image: url(http://plain-apac-prod-public.komododecks.com/202610/18/uzTefmlotx9OTWdDu6Fw/image.png);
+    width: 48px;
+    height:64px;
+    position: fixed;
+    left: 681px;
+    top: 513px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    opacity: 0;
+    animation: ALEXANDERHAMILTON 0s 93.3s forwards;
+}
+@keyframes ALEXANDERHAMILTON {
+    to {opacity: 1}
+}
