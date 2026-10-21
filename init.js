@@ -1,4 +1,26 @@
 const elera = document.querySelector(".elera");
+const tellerPath = document.querySelector(".tellerpath");
+const background = document.querySelector(".town-start");
+let changingMap = false;
+function checkTellerPath () {
+  if (changingMap) return;
+  const eleraBox = elera.getBoundingClientRect ();
+  const exitBox = tellerPath.getBoundingClientRect ();
+  const overlapping =
+  eleraBox.right > exitBox.left &&
+  eleraBox.left < exitBox.right &&
+  eleraBox.bottom > exitBox.top &&
+  eleraBox.top < exitBox.bottom;
+  if (overlapping) {
+    changingMap = true;
+    background.style.backgroundImage ='url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
+    ladada = 0;
+    elera.style.left = ladada + "px";
+    position = 284;
+    elera.style.top = position + "px";
+    changingMap = false;
+  }
+}
 let position = 513;
 let ladada = 681;
 document.addEventListener("keydown", function (DUMBWAYSTODIE) {
@@ -23,9 +45,9 @@ document.addEventListener("keydown", function (DUMBWAYSTODIE) {
     elera.style.left = ladada + "px";
   } else if (DUMBWAYSTODIE.key === "ArrowRight") {
     ladada += 5;
-    if (ladada > 1330) {
-      ladada = 1330;}
+    if (ladada > 1364) {
+      ladada = 1364;}
     elera.style.left = ladada + "px";
   }
-
+checkTellerPath ();
 });
