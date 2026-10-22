@@ -179,3 +179,42 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     height: 79px;
     pointer-events: none;
 }
+.prophecy {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: none;
+    pointer-events: none;
+}
+.fortune-teller {
+    position: absolute;
+    left: 2%;
+    bottom: 145px;
+    height: 55vh;
+    max-width: 40vw;
+    object-fit: contain;
+    object-position: bottom;
+}
+.TO-BE-OR-NOT-TO-BE {
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    bottom: 2%;
+    min-height: 110px;
+    box-sizing: border-box;
+    padding: 20px 28px 35px;
+    background: #f2d890;
+    border: 5px solid #726540;
+    border-radius: 15px;
+    color: #202942;
+        font-family: monospace;
+        font-size: clamp(16px, 2vw, 25px);
+}
+#that-is-the-question {
+    margin: 0;
+}
+.dialouge-arrow {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+}
