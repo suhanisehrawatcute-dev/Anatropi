@@ -171,3 +171,11 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     opacity: 0;
     pointer-events: none;
 }
+.fortune {
+    position: fixed;
+    left: 1075px;
+    top: 501px;
+    width: 81px;
+    height: 79px;
+    pointer-events: none;
+}

@@ -1,6 +1,7 @@
 const elera = document.querySelector(".elera");
 const tellerPath = document.querySelector(".tellerpath");
 const background = document.querySelector(".town-start");
+const fortune = document.querySelector(".fortune");
 let changingMap = false;
 function checkTellerPath () {
   if (changingMap) return;
@@ -49,5 +50,22 @@ document.addEventListener("keydown", function (DUMBWAYSTODIE) {
       ladada = 1364;}
     elera.style.left = ladada + "px";
   }
-checkTellerPath ();
+checkTellerPath();
+checkFortune ();
 });
+function checkFortune () {
+   const eleraBox = elera.getBoundingClientRect();
+  const tellerBox = fortune.getBoundingClientRect();
+  const overlapping=
+  eleraBox.right > tellerBox.left &&
+  eleraBox.left < tellerBox.right &&
+  eleraBox.bottom > tellerBox.top &&
+  eleraBox.top < tellerBox.bottom;
+
+  if (overlapping) {
+    console.log ("You knock on the fortune teller's door, shr answers, smiling.")
+  elera.style.display = "none";
+  background.style.backgroundImage =
+'url("https://media.istockphoto.com/id/1390072590/photo/creepy-room-and-silhouette-witch-and-crow.jpg?s=612x612&w=0&k=20&c=Nv8h4nL50PwnYW1yvjSxwAkhJTFziwlhDuEzgye4zI8=")';
+
+  }}
