@@ -188,10 +188,10 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
 }
 .fortune-teller {
     position: absolute;
-    left: 2%;
+    left: 4%;
     bottom: 145px;
-    height: 55vh;
-    max-width: 40vw;
+    height: 65;
+    max-width: 50vw;
     object-fit: contain;
     object-position: bottom;
 }
