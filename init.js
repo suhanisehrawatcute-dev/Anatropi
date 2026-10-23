@@ -3,6 +3,29 @@ const tellerPath = document.querySelector(".tellerpath");
 const background = document.querySelector(".town-start");
 const fortune = document.querySelector(".fortune");
 const TOBEORNOTTOBE = document.querySelector (".TO-BE-OR-NOT-TO-BE");
+const choiceContainer = document.querySelector ("#choices-choices-choices");
+const button = document.createElement("button");
+const second = document.createElement ("button");
+const GOTTACATCHEMALL = document.querySelector("#that-is-the-question")
+const continueText = document.querySelector (".dialouge-arrow")
+button.textContent = "What's ephemera?"
+second.textContent = "So...I heard something."
+choiceContainer.appendChild(button);
+choiceContainer.appendChild(second);
+choiceContainer.style.display = "none";
+let talkingToFortune = false;
+let i = 0;
+let typing = false;
+const message = "You, Elera, can choose to be an emphemera...";
+function typewriter() {
+  if (i < message.length) {
+    GOTTACATCHEMALL.textContent += message[i]
+    i++;
+    setTimeout(typewriter, 50);}
+    else {
+      continueText.textContent = "PRESS SPACE TO CONTINUE";
+    typing = false;}
+  }
 let changingMap = false;
 function checkTellerPath () {
   if (changingMap) return;
@@ -55,7 +78,8 @@ checkTellerPath();
 checkFortune ();
 });
 function checkFortune () {
-   const eleraBox = elera.getBoundingClientRect();
+   const eleraBox =
+    elera.getBoundingClientRect();
   const tellerBox = fortune.getBoundingClientRect();
   const overlapping=
   eleraBox.right > tellerBox.left &&
@@ -63,12 +87,25 @@ function checkFortune () {
   eleraBox.bottom > tellerBox.top &&
   eleraBox.top < tellerBox.bottom;
 
-  if (overlapping) {
+  if (overlapping && !talkingToFortune) {
+    talkingToFortune = true;
   elera.style.display = "none";
   background.style.backgroundImage =
 'url("https://media.istockphoto.com/id/1390072590/photo/creepy-room-and-silhouette-witch-and-crow.jpg?s=612x612&w=0&k=20&c=Nv8h4nL50PwnYW1yvjSxwAkhJTFziwlhDuEzgye4zI8=")';
 const prophecy = document.querySelector(".prophecy");
-prophecy.style.display = "block";}}
-TOBEORNOTTOBE.addEventListener("click", function (){
-  
+prophecy.style.display = "block";
+GOTTACATCHEMALL.textContent ="";
+i = 0;
+typing = true;
+typewriter();
+}}
+document.addEventListener("keydown", function (event) {
+if (event.code === "Space" && !typing && talkingToFortune) {
+if (choiceContainer.style.display !== "flex"){
+ event.preventDefault();
+GOTTACATCHEMALL.textContent = "";
+continueText.textContent = "";
+choiceContainer.style.display = "flex";
+}
+}
 });
