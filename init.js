@@ -126,8 +126,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 choiceContainer.addEventListener("click", function (event) {
-  console.log("IM WORKING RN");
-
+choiceContainer.style.display="none";
   if (event.target === second) {
     message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";
     i = 0;
