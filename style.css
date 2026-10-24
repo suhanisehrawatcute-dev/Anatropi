@@ -209,7 +209,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     position: absolute;
     left: 4%;
     bottom: 145px;
-    height: 65px;
+    height: 65;
     max-width: 50vw;
     object-fit: contain;
     object-position: bottom;

@@ -129,7 +129,7 @@ choiceContainer.addEventListener("click", function (event) {
 choiceContainer.style.display="none";
   if (event.target === second) {
     message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";
-    i = 0;
+    i = 0;o
     GOTTACATCHEMALL.textContent = "";
     typing = true;
     typewriter();
