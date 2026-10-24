@@ -228,6 +228,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     color: #202942;
         font-family: monospace;
         font-size: clamp(16px, 2vw, 25px);
+        pointer-events: auto;
 }
 #that-is-the-question {
     margin: 0;
