@@ -16,7 +16,7 @@ choiceContainer.style.display = "none";
 let talkingToFortune = false;
 let i = 0;
 let typing = false;
-const message = "You, Elera, can choose to be an emphemera...";
+let message = "You, Elera, can choose to be an emphemera...";
 function typewriter() {
   if (i < message.length) {
     GOTTACATCHEMALL.textContent += message[i]
@@ -24,8 +24,7 @@ function typewriter() {
     setTimeout(typewriter, 50);}
     else {
       continueText.textContent = "PRESS SPACE TO CONTINUE";
-    typing = false;}
-  }
+    typing = false;}  }
 let changingMap = false;
 function checkTellerPath () {
   if (changingMap) return;
@@ -105,7 +104,18 @@ if (choiceContainer.style.display !== "flex"){
  event.preventDefault();
 GOTTACATCHEMALL.textContent = "";
 continueText.textContent = "";
-choiceContainer.style.display = "flex";
-}
-}
-});
+choiceContainer.style.display = "flex";}}});
+choiceContainer.addEventListener("click", function (event) {console.log("IM WORKING RN")
+  if (event.target === second) {
+message = "Heard what? That atrocius un-birthday song...";
+i = 0;
+GOTTACATCHEMALL.textContent="";
+typing = true;
+typewriter();}
+else if (event.target === button) {
+  message = "You're a curious one. Emphemera are things that do not last..."
+  i = 0;
+  GOTTACATCHEMALL.textContent = "";
+typing = true;
+typewriter();} }
+);
