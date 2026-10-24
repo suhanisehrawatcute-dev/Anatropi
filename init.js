@@ -1,3 +1,4 @@
+console.log("INIT JS LOADED");
 const elera = document.querySelector(".elera");
 const tellerPath = document.querySelector(".tellerpath");
 const background = document.querySelector(".town-start");
@@ -107,13 +108,13 @@ continueText.textContent = "";
 choiceContainer.style.display = "flex";}}});
 choiceContainer.addEventListener("click", function (event) {console.log("IM WORKING RN")
   if (event.target === second) {
-message = "Heard what? That atrocius un-birthday song...";
+message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";
 i = 0;
 GOTTACATCHEMALL.textContent="";
 typing = true;
 typewriter();}
 else if (event.target === button) {
-  message = "You're a curious one. Emphemera are things that do not last..."
+  message = "You're a curious one, Elera. Emphemera are things that do not last..."
   i = 0;
   GOTTACATCHEMALL.textContent = "";
 typing = true;
