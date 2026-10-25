@@ -152,11 +152,20 @@ document.addEventListener("keydown", function (event){
     }
     else if (dialogueStage === 3) {
       message = "Goodbye little ephemeron, just remember that the line between saving a world and ruling it is thinner than you think...";
-      dialogueStage = 3;
+      dialogueStage = 4;
       i = 0;
       GOTTACATCHEMALL.textContent = "";
       typing = true;
       typewriter();
+    }
+    else if (dialogueStage === 4) {
+      document.querySelector(".prophecy").style.display = "none";
+      background.style.backgroundImage = 'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
+      elera.style.display = "block";
+      document.querySelector (".knight-uno").style.display = "block";
+      document.querySelector (".knight-two").style.display = "block";
+      document.querySelector (".young-girl").style.display = "block";
+      talkingToFortune = false;
     }
   }
 });
