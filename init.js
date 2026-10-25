@@ -125,7 +125,7 @@ function checkFortune() {
   }
 }
 document.addEventListener("keydown", function (event){
-  if (event.code === "Space" && !typing && talkingToFortune) {
+  if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !===5) {
     event.preventDefault();
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
@@ -166,6 +166,7 @@ document.addEventListener("keydown", function (event){
       document.querySelector (".knight-two").style.display = "block";
       document.querySelector (".young-girl").style.display = "block";
       talkingToFortune = false;
+      dialogueStage = 5;
     }
   }
 });
