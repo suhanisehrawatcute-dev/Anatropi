@@ -1,6 +1,3 @@
-
-console.log("INIT JS LOADED");
-
 const elera = document.querySelector(".elera");
 const tellerPath = document.querySelector(".tellerpath");
 const background = document.querySelector(".town-start");
@@ -11,7 +8,6 @@ const button = document.createElement("button");
 const second = document.createElement("button");
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
 const continueText = document.querySelector(".dialouge-arrow");
-
 button.textContent = "What's ephemera?";
 second.textContent = "So...I heard something.";
 choiceContainer.appendChild(button);
@@ -21,6 +17,7 @@ choiceContainer.style.display = "none";
 let talkingToFortune = false;
 let i = 0;
 let typing = false;
+let choicesShown = false;
 let message = "You, Elera, can choose to be an emphemera...";
 
 function typewriter() {
@@ -115,12 +112,13 @@ function checkFortune() {
 }
 
 document.addEventListener("keydown", function (event) {
-  if (event.code === "Space" && !typing && talkingToFortune) {
+  if (event.code === "Space" && !typing && talkingToFortune && !choicesShown) {
     if (choiceContainer.style.display !== "flex") {
       event.preventDefault();
       GOTTACATCHEMALL.textContent = "";
       continueText.textContent = "";
       choiceContainer.style.display = "flex";
+      choicesShown = true;
     }
   }
 });
@@ -129,7 +127,7 @@ choiceContainer.addEventListener("click", function (event) {
 choiceContainer.style.display="none";
   if (event.target === second) {
     message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";
-    i = 0;o
+    i = 0;
     GOTTACATCHEMALL.textContent = "";
     typing = true;
     typewriter();
