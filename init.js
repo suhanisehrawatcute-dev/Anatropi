@@ -169,6 +169,11 @@ document.addEventListener("keydown", function (event){
       document.querySelector (".knight-uno").style.display = "block";
       document.querySelector (".knight-two").style.display = "block";
       document.querySelector (".young-girl").style.display = "block";
+      console.log(
+    getComputedStyle(knightUno).display,
+    getComputedStyle(knightTwo).display,
+    getComputedStyle(youngGirl).display
+);
       talkingToFortune = false;
       dialogueStage = 5;
     }
