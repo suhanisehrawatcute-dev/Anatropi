@@ -6,14 +6,18 @@ const TOBEORNOTTOBE = document.querySelector(".TO-BE-OR-NOT-TO-BE");
 const choiceContainer = document.querySelector("#choices-choices-choices");
 const button = document.createElement("button");
 const second = document.createElement("button");
+const oohooh = document.createElement ("button");
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
 const continueText = document.querySelector(".dialouge-arrow");
 button.textContent = "What's ephemera?";
 second.textContent = "So...I heard something.";
+oohooh.textContent = "You got prophecy? ehehheheh";
+oohooh.style.display = "none";
 choiceContainer.appendChild(button);
 choiceContainer.appendChild(second);
+choiceContainer.appendChild (oohooh)
 choiceContainer.style.display = "none";
-
+let dialogueStage = 0;
 let talkingToFortune = false;
 let i = 0;
 let typing = false;
@@ -110,15 +114,22 @@ function checkFortune() {
     typewriter();
   }
 }
-
-document.addEventListener("keydown", function (event) {
-  if (event.code === "Space" && !typing && talkingToFortune && !choicesShown) {
-    if (choiceContainer.style.display !== "flex") {
-      event.preventDefault();
-      GOTTACATCHEMALL.textContent = "";
-      continueText.textContent = "";
+document.addEventListener("keydown", function (event){
+  if (event.code === "Space" && !typing && talkingToFortune) {
+    event.preventDefault();
+    continueText.textContent = "";
+    if (dialoueStage === 0) {
       choiceContainer.style.display = "flex";
+      button.style.display = "inline-block";
+      second.style.display = "inline-block";
+      oohooh.style.display = "none";
       choicesShown = true;
+    } else if (dialogueStage === 1){
+      choiceContainer.style.display = "flex";
+      button.style.display = "none";
+      second.style.display = "none";
+      oohooh.style.display = "inline-block";
+      dialogueStage = 2;
     }
   }
 });
@@ -128,14 +139,29 @@ choiceContainer.style.display="none";
   if (event.target === second) {
     message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";
     i = 0;
+    dialogueStage = 1
     GOTTACATCHEMALL.textContent = "";
     typing = true;
     typewriter();
   } else if (event.target === button) {
     message = "You're a curious one, Elera. Emphemera are things that do not last...";
     i = 0;
+    dialogueStage = 1;
     GOTTACATCHEMALL.textContent = "";
     typing = true;
     typewriter();
+  }else if (event.target === oohooh) {
+    message = "A prophecy? Oh little ephemera... anyone can see you are destined for something far bigger than yourself";
+    i = 0;
+    dialogueStage = 2;
+    GOTTACATCHEMALL.textContent = "";
+    typing = true;
+    typewriter();
+    }
   }
-});
+  if (event.target === second|| event.target === button) {
+    i = 0;
+    GOTTACATCHEMALL.textContent = "";
+    typing = true;
+    typewriter();  
+  });
