@@ -8,7 +8,7 @@ const button = document.createElement("button");
 const second = document.createElement("button");
 const oohooh = document.createElement ("button");
 const whatchaon = document.createElement ("button");
-whatchaon.textContent = "Hmm, so what should I do about that?";
+whatchaon.textContent = "How can I fulfill what the stars expect of me?";
 whatchaon.style.display = "none";
 choiceContainer.appendChild(whatchaon);
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
@@ -21,7 +21,8 @@ button.style.display = "none";
 second.style.display = "none";
 choiceContainer.appendChild(button);
 choiceContainer.appendChild(second);
-choiceContainer.appendChild (oohooh)
+choiceContainer.appendChild (oohooh);
+choiceContainer.appendChild (whatchaon);
 choiceContainer.style.display = "none";
 let dialogueStage = 0;
 let talkingToFortune = false;
@@ -133,13 +134,29 @@ document.addEventListener("keydown", function (event){
       button.style.display = "inline-block";
       second.style.display = "inline-block";
       oohooh.style.display = "none";
+      whatchaon.style.display = "none";
       choicesShown = true;
     } else if (dialogueStage === 1){
       choiceContainer.style.display = "flex";
       button.style.display = "none";
       second.style.display = "none";
       oohooh.style.display = "inline-block";
+      whatchaon.style.display = "none";
       dialogueStage = 2;
+    }else if (dialogueStage === 2){
+        choiceContainer.style.display = "flex";
+      button.style.display = "none";
+      second.style.display = "none";
+      oohooh.style.display = "none";
+      whatchaon.style.display = "inline-block";
+    }
+    else if (dialogueStage === 3) {
+      message = "Goodbye little ephemeron, just remember that the line between saving a world and ruling it is thinner than you think...";
+      dialogueStage = 3;
+      i = 0;
+      GOTTACATCHEMALL.textContent = "";
+      typing = true;
+      typewriter();
     }
   }
 });
@@ -155,6 +172,10 @@ choiceContainer.style.display="none";
     else if (event.target === oohooh) {
       message = "A prophecy? Oh little ephemeron... anyone can see you are destined for something far bigger than yourself";
       dialogueStage = 2;}
+      else if (event.target === whatchaon) {
+        message = "You must start here in this very town, correct the wrong in this town and the world. That is how you will fulfill your destiny."
+      dialogueStage = 3;
+      }
       else{
         return;}
         i=0;
