@@ -2,6 +2,7 @@ const elera = document.querySelector(".elera");
 const tellerPath = document.querySelector(".tellerpath");
 const background = document.querySelector(".town-start");
 const fortune = document.querySelector(".fortune");
+let prophecyRead = false;
 const knightUno = document.querySelector(".knight-uno");
 const knightTwo = document.querySelector(".knight-two");
 const youngGirl = document.querySelector(".young-girl");
@@ -111,7 +112,7 @@ function checkFortune() {
     eleraBox.bottom > tellerBox.top &&
     eleraBox.top < tellerBox.bottom;
 
-  if (overlapping && !talkingToFortune) {
+  if (overlapping && !talkingToFortune && !prophecyRead) {
     talkingToFortune = true;
     elera.style.display = "none";
     background.style.backgroundImage =
@@ -169,13 +170,9 @@ document.addEventListener("keydown", function (event){
       document.querySelector (".knight-uno").style.display = "block";
       document.querySelector (".knight-two").style.display = "block";
       document.querySelector (".young-girl").style.display = "block";
-      console.log(
-    getComputedStyle(knightUno).display,
-    getComputedStyle(knightTwo).display,
-    getComputedStyle(youngGirl).display
-);
       talkingToFortune = false;
       dialogueStage = 5;
+      prophecyRead = true;
     }
   }
 });
