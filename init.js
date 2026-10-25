@@ -2,6 +2,9 @@ const elera = document.querySelector(".elera");
 const tellerPath = document.querySelector(".tellerpath");
 const background = document.querySelector(".town-start");
 const fortune = document.querySelector(".fortune");
+const knightUno = document.querySelector(".knight-uno");
+const knightTwo = document.querySelector(".knight-two");
+const youngGirl = document.querySelector(".young-girl");
 const TOBEORNOTTOBE = document.querySelector(".TO-BE-OR-NOT-TO-BE");
 const choiceContainer = document.querySelector("#choices-choices-choices");
 const button = document.createElement("button");
@@ -125,7 +128,7 @@ function checkFortune() {
   }
 }
 document.addEventListener("keydown", function (event){
-  if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !===5) {
+  if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
     event.preventDefault();
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
@@ -162,6 +165,7 @@ document.addEventListener("keydown", function (event){
       document.querySelector(".prophecy").style.display = "none";
       background.style.backgroundImage = 'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
       elera.style.display = "block";
+      elera.style.opacity = "1";
       document.querySelector (".knight-uno").style.display = "block";
       document.querySelector (".knight-two").style.display = "block";
       document.querySelector (".young-girl").style.display = "block";
