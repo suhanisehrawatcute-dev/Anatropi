@@ -127,6 +127,7 @@ document.addEventListener("keydown", function (event){
   if (event.code === "Space" && !typing && talkingToFortune) {
     event.preventDefault();
     continueText.textContent = "";
+    GOTTACATCHEMALL.textContent = "";
     if (dialogueStage === 0) {
       choiceContainer.style.display = "flex";
       button.style.display = "inline-block";
