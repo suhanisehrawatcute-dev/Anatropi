@@ -118,7 +118,7 @@ document.addEventListener("keydown", function (event){
   if (event.code === "Space" && !typing && talkingToFortune) {
     event.preventDefault();
     continueText.textContent = "";
-    if (dialoueStage === 0) {
+    if (dialogueStage === 0) {
       choiceContainer.style.display = "flex";
       button.style.display = "inline-block";
       second.style.display = "inline-block";
@@ -136,32 +136,19 @@ document.addEventListener("keydown", function (event){
 
 choiceContainer.addEventListener("click", function (event) {
 choiceContainer.style.display="none";
-  if (event.target === second) {
-    message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";
-    i = 0;
-    dialogueStage = 1
-    GOTTACATCHEMALL.textContent = "";
-    typing = true;
-    typewriter();
-  } else if (event.target === button) {
-    message = "You're a curious one, Elera. Emphemera are things that do not last...";
-    i = 0;
-    dialogueStage = 1;
-    GOTTACATCHEMALL.textContent = "";
-    typing = true;
-    typewriter();
-  }else if (event.target === oohooh) {
-    message = "A prophecy? Oh little ephemera... anyone can see you are destined for something far bigger than yourself";
-    i = 0;
-    dialogueStage = 2;
-    GOTTACATCHEMALL.textContent = "";
-    typing = true;
-    typewriter();
-    }
-  }
-  if (event.target === second|| event.target === button) {
-    i = 0;
-    GOTTACATCHEMALL.textContent = "";
-    typing = true;
-    typewriter();  
-  });
+  if (event.target === second || event.target === button) {
+   if (event.target === second) {
+    message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";}
+   else {
+    message = "You're a curious one, Elera. Emphemera are things that do not last...";}
+    dialogueStage = 1;}
+    else if (event.targer === oohooh) {
+      message = "A prophecy? Oh little ephemeron... anyone can see you are destined for something far bigger than yourself";
+      dialogueStage = 2;}
+      else{
+        return;}
+        i=0;
+        GOTTACATCHEMALL.textContent = "";
+        typing = true;
+        typewriter();
+      });
