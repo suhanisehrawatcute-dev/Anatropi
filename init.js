@@ -13,6 +13,8 @@ button.textContent = "What's ephemera?";
 second.textContent = "So...I heard something.";
 oohooh.textContent = "You got prophecy? ehehheheh";
 oohooh.style.display = "none";
+button.style.display = "none";
+second.style.display = "none";
 choiceContainer.appendChild(button);
 choiceContainer.appendChild(second);
 choiceContainer.appendChild (oohooh)
@@ -142,7 +144,7 @@ choiceContainer.style.display="none";
    else {
     message = "You're a curious one, Elera. Emphemera are things that do not last...";}
     dialogueStage = 1;}
-    else if (event.targer === oohooh) {
+    else if (event.target === oohooh) {
       message = "A prophecy? Oh little ephemeron... anyone can see you are destined for something far bigger than yourself";
       dialogueStage = 2;}
       else{
