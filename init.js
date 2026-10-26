@@ -2,7 +2,9 @@ const elera = document.querySelector(".elera");
 const useWords = document.createElement("button");
 const useActions = document.createElement("button");
 useWords.textContent = "Leave her alone!!!";
-useAction.textContent = "Punch the guard";
+useActions.textContent = "Punch the guard";
+useWords.style.display = "none";
+useActions.style.display = "none";
 const tellerPath = document.querySelector(".tellerpath");
 const background = document.querySelector(".town-start");
 const fortune = document.querySelector(".fortune");
@@ -138,6 +140,17 @@ function checkFortune() {
   }
 }
 document.addEventListener("keydown", function (event){
+  if (event.code === "Space" && !typing && fightingKnights){
+    event.preventDefault();
+    continueText.textContent = "";
+    choiceContainer.style.display = "flex";
+    button.style.display = "none";
+    second.style.display = "none";
+    oohooh.style.display = "none";
+    whatchaon.style.display = "none";
+    useWords.style.display = "inline-block";
+    useActions.style.display = "inline-block";
+  }
   if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
     event.preventDefault();
     continueText.textContent = "";
@@ -222,6 +235,7 @@ choiceContainer.style.display="none";
 
       if (overlapping) {
         fightingKnights = true;
+        typing = true;
         elera.style.display = "none";
         knightUno.style.display = "none";
         knightTwo.style.display = "none";
