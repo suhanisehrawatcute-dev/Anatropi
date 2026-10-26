@@ -239,8 +239,8 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     bottom: 12px;}
     .knight-uno {
         position: absolute;
-        width: 60px;
-        height: 78px;
+        width: 68px;
+        height: 83px;
         background-size: contain;
         background-repeat: no-repeat;
         left: 400px;
@@ -251,8 +251,8 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     }
     .knight-two {
         position: absolute;
-        width: 60px;
-        height: 78px;
+        width: 68px;
+        height: 83px;
         background-size: contain;
         background-repeat: no-repeat;
         left: 469px;
@@ -263,8 +263,8 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     }
     .young-girl {
         position: absolute;
-        width: 54px;
-        height: 65px;
+        width: 73;
+        height: 78px;
         background-size: contain;
         background-repeat: no-repeat;
         left: 435px;
@@ -272,4 +272,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
         display: none;
         background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAzrWybkPNCNXhDtpKWuDfYSfGfHqjaWksL3ldPrkJLQ&s=10");
         z-index: 3;
+    }
+    .actualbadknights {
+        background-imah
     }

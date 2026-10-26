@@ -14,6 +14,8 @@ const oohooh = document.createElement ("button");
 const whatchaon = document.createElement ("button");
 whatchaon.textContent = "How can I fulfill what the stars expect of me?";
 whatchaon.style.display = "none";
+let fightingKnights = false;
+let knightfightSceneDone = false;
 choiceContainer.appendChild(whatchaon);
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
 const continueText = document.querySelector(".dialouge-arrow");
@@ -101,6 +103,7 @@ document.addEventListener("keydown", function (DUMBWAYSTODIE) {
 
   checkTellerPath();
   checkFortune();
+  checkKnights();
 });
 
 function checkFortune() {
@@ -199,3 +202,23 @@ choiceContainer.style.display="none";
         typing = true;
         typewriter();
       });
+      function checkKnights() {
+        if (talkingToFortune || fightingKnights || knightfightSceneDone) return;
+        const eleraBox = elera.getBoundingClientRect();
+        const unoBox = knightUno.getBoundingClientRect();
+        const twoBox = knightTwo.getBoundingClientRect();
+        const girlBox = youngGirl.getBoundingClientRect();
+      const overlapping =
+      eleraBox.right > Math.min(unoBox.left, twoBox.left, girlBox.left) &&
+      eleraBox.left < Math.max(unoBox.right, twoBox.right, girlBox.right) &&
+      eleraBox.bottom > Math.min(unoBox.top, twoBox.top, girlBox.top) &&
+      eleraBox.top < Math.max(unoBox.bottom, twoBox.bottom, girlBox.bottom);
+
+      if (overlapping) {
+        fightingKnights = true;
+        elera.style.display = "none";
+        background.style.backgroundImage = 'url("https://media.istockphoto.com/id/1269719686/photo/european-medieval-or-fantasy-town-square-on-a-sunny-day.jpg?s=612x612&w=0&k=20&c=mht4VcuaDug1plQ17MIdc9lxkO1OFESqICHPJs8alwY=")';
+        const actualbadKnights = document.querySelector(".actualbadknights");
+        actualbadKnights.style.display = "block";
+      }
+      }
