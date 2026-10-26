@@ -129,7 +129,8 @@ function checkFortune() {
     background.style.backgroundImage =
       'url("https://media.istockphoto.com/id/1390072590/photo/creepy-room-and-silhouette-witch-and-crow.jpg?s=612x612&w=0&k=20&c=Nv8h4nL50PwnYW1yvjSxwAkhJTFziwlhDuEzgye4zI8=")';
     const prophecy = document.querySelector(".prophecy");
-    prophecy.style.display = "block";
+prophecy.querySelector(".fortune-teller").src =
+  "https://media.istockphoto.com/id/503569683/photo/terrier-dog-fortune-teller.jpg?s=612x612&w=0&k=20&c=Gij49pGtxOM5v6rnKuAD4XrFoZLVqatg83bG5AV0sv4=";    prophecy.style.display = "block";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "none";
     button.style.display = "none";
@@ -260,7 +261,8 @@ choiceContainer.addEventListener("click", function (event) {
         background.style.backgroundImage = 'url("https://media.istockphoto.com/id/1269719686/photo/european-medieval-or-fantasy-town-square-on-a-sunny-day.jpg?s=612x612&w=0&k=20&c=mht4VcuaDug1plQ17MIdc9lxkO1OFESqICHPJs8alwY=")';
         const actualbadKnights = document.querySelector(".actualbadknights");
         actualbadKnights.style.display = "block";
-prophecy = document.querySelector(".prophecy");
+const prophecy = document.querySelector(".prophecy");
+prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1R_CanDpR0ib90MgNJz_CyN8_HKpgcH93UsBafdZH2Q&s=10";
 prophecy.style.display = "block";
 GOTTACATCHEMALL.textContent = "";
 message = "Don't be shy, sweetheart";
