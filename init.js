@@ -1,4 +1,8 @@
 const elera = document.querySelector(".elera");
+const useWords = document.createElement("button");
+const useActions = document.createElement("button");
+useWords.textContent = "Leave her alone!!!";
+useAction.textContent = "Punch the guard";
 const tellerPath = document.querySelector(".tellerpath");
 const background = document.querySelector(".town-start");
 const fortune = document.querySelector(".fortune");
@@ -29,6 +33,8 @@ choiceContainer.appendChild(button);
 choiceContainer.appendChild(second);
 choiceContainer.appendChild (oohooh);
 choiceContainer.appendChild (whatchaon);
+choiceContainer.appendChild(useWords);
+choiceContainer.appendChild(useActions);
 choiceContainer.style.display = "none";
 let dialogueStage = 0;
 let talkingToFortune = false;
@@ -217,8 +223,17 @@ choiceContainer.style.display="none";
       if (overlapping) {
         fightingKnights = true;
         elera.style.display = "none";
+        knightUno.style.display = "none";
+        knightTwo.style.display = "none";
+        youngGirl.style.display = "none";
         background.style.backgroundImage = 'url("https://media.istockphoto.com/id/1269719686/photo/european-medieval-or-fantasy-town-square-on-a-sunny-day.jpg?s=612x612&w=0&k=20&c=mht4VcuaDug1plQ17MIdc9lxkO1OFESqICHPJs8alwY=")';
         const actualbadKnights = document.querySelector(".actualbadknights");
         actualbadKnights.style.display = "block";
+prophecy = document.querySelector(".prophecy");
+prophecy.style.display = "block";
+GOTTACATCHEMALL.textContent = "";
+message = "Don't be shy, sweetheart";
+i = 0;
+typewriter();
       }
       }
