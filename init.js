@@ -215,7 +215,7 @@ GOTTACATCHEMALL.textContent = "";
 typing = true;
 typewriter();
 return;
- else {
+} else {
   if (event.target === second || event.target === button) {
    if (event.target === second) {
     message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";}
