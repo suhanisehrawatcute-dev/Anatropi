@@ -201,6 +201,21 @@ document.addEventListener("keydown", function (event){
 
 choiceContainer.addEventListener("click", function (event) {
 choiceContainer.style.display="none";
+if (event.target === useWords) {
+  message = "Leave her alone!!!";
+  i = 0;
+  GOTTACATCHEMALL.textContent = "";
+  typing = true;
+  typewriter();
+  return;
+} else if (event.target === useActions) {
+message = "Punch the guard?";
+i = 0;
+GOTTACATCHEMALL.textContent = "";
+typing = true;
+typewriter();
+return;
+ else {
   if (event.target === second || event.target === button) {
    if (event.target === second) {
     message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";}
@@ -220,7 +235,8 @@ choiceContainer.style.display="none";
         GOTTACATCHEMALL.textContent = "";
         typing = true;
         typewriter();
-      });
+      }
+    });
       function checkKnights() {
         if (talkingToFortune || fightingKnights || knightfightSceneDone) return;
         const eleraBox = elera.getBoundingClientRect();
