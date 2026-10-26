@@ -263,7 +263,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     }
     .young-girl {
         position: absolute;
-        width: 73;
+        width: 73px;
         height: 78px;
         background-size: contain;
         background-repeat: no-repeat;
@@ -274,5 +274,5 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
         z-index: 3;
     }
     .actualbadknights {
-        background-imah
+        
     }
