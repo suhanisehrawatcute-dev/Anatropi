@@ -208,7 +208,7 @@ choiceContainer.addEventListener("click", function (event) {
     event.target !== second &&
     event.target !== button &&
     event.target !== oohooh &&prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxYF5TanLrW4sGuiJYlVj13LF2S9C11dUx1UDuNq98pu8p5HcbHyqsYk&s=10";
-
+  )
   } else if (event.target === button) {
     message = "You're a curious one, Elera. Emphemera are things that do not last...";
     dialogueStage = 1;
