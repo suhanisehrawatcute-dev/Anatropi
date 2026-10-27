@@ -262,7 +262,7 @@ choiceContainer.addEventListener("click", function (event) {
         const actualbadKnights = document.querySelector(".actualbadknights");
         actualbadKnights.style.display = "block";
 const prophecy = document.querySelector(".prophecy");
-const knightsandgirlImage.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1R_CanDpR0ib90MgNJz_CyN8_HKpgcH93UsBafdZH2Q&s=10";
+knightsandgirlImage.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1R_CanDpR0ib90MgNJz_CyN8_HKpgcH93UsBafdZH2Q&s=10";
 prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1R_CanDpR0ib90MgNJz_CyN8_HKpgcH93UsBafdZH2Q&s=10";
 prophecy.style.display = "block";
 GOTTACATCHEMALL.textContent = "";
