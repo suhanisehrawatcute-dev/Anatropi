@@ -207,22 +207,8 @@ choiceContainer.addEventListener("click", function (event) {
     event.target !== useActions &&
     event.target !== second &&
     event.target !== button &&
-    event.target !== oohooh &&
-    event.target !== whatchaon
-  ) {
-    return;
-  }
-  choiceContainer.style.display = "none";
+    event.target !== oohooh &&prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxYF5TanLrW4sGuiJYlVj13LF2S9C11dUx1UDuNq98pu8p5HcbHyqsYk&s=10";
 
-  if (event.target === useWords) {
-    message = "Leave her alone!!!";
-  } else if (event.target === useActions) {
-    message = "Punch the guard?";
-  } else if (event.target === useActions) {
-    message = "Elera punches the guard and you get into a fight. The young girl runs away."
-  } else if (event.target === second) {
-    message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";
-    dialogueStage = 1;
   } else if (event.target === button) {
     message = "You're a curious one, Elera. Emphemera are things that do not last...";
     dialogueStage = 1;
