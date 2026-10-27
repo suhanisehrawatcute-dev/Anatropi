@@ -144,6 +144,7 @@ document.addEventListener("keydown", function (event){
   if (event.code === "Space" && !typing && fightingKnights){
     event.preventDefault();
     continueText.textContent = "";
+    GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "flex";
     button.style.display = "none";
     second.style.display = "none";
