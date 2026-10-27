@@ -262,11 +262,15 @@ choiceContainer.addEventListener("click", function (event) {
         const actualbadKnights = document.querySelector(".actualbadknights");
         actualbadKnights.style.display = "block";
 const prophecy = document.querySelector(".prophecy");
-prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1R_CanDpR0ib90MgNJz_CyN8_HKpgcH93UsBafdZH2Q&s=10";
+prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxYF5TanLrW4sGuiJYlVj13LF2S9C11dUx1UDuNq98pu8p5HcbHyqsYk&s=10";
 prophecy.style.display = "block";
 GOTTACATCHEMALL.textContent = "";
+choiceContainer.style.display = "none";
+useActions.style.display = "none";
+continueText.textContent = "";
 message = "Don't be shy, sweetheart";
 i = 0;
+typing = true;
 typewriter();
       }
       }
