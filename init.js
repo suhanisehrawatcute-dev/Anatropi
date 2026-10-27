@@ -150,9 +150,8 @@ document.addEventListener("keydown", function (event){
     oohooh.style.display = "none";
     whatchaon.style.display = "none";
     useWords.style.display = "inline-block";
-    useActions.style.display = "inline-block";
-  }
-  if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
+    useActions.style.display = "inline-block";    }
+      if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
     event.preventDefault();
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
@@ -212,13 +211,14 @@ choiceContainer.addEventListener("click", function (event) {
   ) {
     return;
   }
-
   choiceContainer.style.display = "none";
 
   if (event.target === useWords) {
     message = "Leave her alone!!!";
   } else if (event.target === useActions) {
     message = "Punch the guard?";
+  } else if (event.target === useActions) {
+    message = "Elera punches the guard and you get into a fight. The young girl runs away."
   } else if (event.target === second) {
     message = "Heard what? There are many things to hear, the birdsong, the laughter, the shrieks of your worst enemies. Just joking!";
     dialogueStage = 1;
@@ -267,6 +267,7 @@ prophecy.style.display = "block";
 GOTTACATCHEMALL.textContent = "";
 choiceContainer.style.display = "none";
 useActions.style.display = "none";
+useWords.style.display = "none";
 continueText.textContent = "";
 message = "Don't be shy, sweetheart";
 i = 0;
