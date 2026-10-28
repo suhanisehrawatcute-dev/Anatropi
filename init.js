@@ -280,12 +280,16 @@ if (event.target === useWords) {
         const unoBox = knightUno.getBoundingClientRect();
         const twoBox = knightTwo.getBoundingClientRect();
         const girlBox = youngGirl.getBoundingClientRect();
-      const overlapping =
-      eleraBox.right > Math.min(unoBox.left, twoBox.left, girlBox.left) &&
-      eleraBox.left < Math.max(unoBox.right, twoBox.right, girlBox.right) &&
-      eleraBox.bottom > Math.min(unoBox.top, twoBox.top, girlBox.top) &&
-      eleraBox.top < Math.max(unoBox.bottom, twoBox.bottom, girlBox.bottom);
-    
+        const overlaps = box =>
+          eleraBox.right > box.left &&
+        eleraBox.left < box.right &&
+        eleraBox.bottom > box.top &&
+        eleraBox.top <box.bottom;
+        
+        const overlapping =
+        overlaps(unoBox) ||
+        overlaps(twoBox) ||
+        overlaps(girlBox);
 
       if (overlapping) {
         fightingKnights = true;
