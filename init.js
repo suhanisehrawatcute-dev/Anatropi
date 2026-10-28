@@ -1,3 +1,5 @@
+let good = 0;
+let justice = 0;
 const elera = document.querySelector(".elera");
 const useWords = document.createElement("button");
 const useActions = document.createElement("button");
@@ -213,6 +215,23 @@ choiceContainer.addEventListener("click", function (event) {
   ){
     return; }
     choiceContainer.style.display = "none";
+if (event.target === useWords) {
+  good += 5;
+  justice -= 10;
+  fightingKnights = false;
+  knightfightSceneDone = true;
+  const actualbadKnights = document.querySelector(".actualbadKnights");
+  actualbadKnights.style.display = "none";
+  const prophecy = document.querySelector(".prophecy");
+  prophecy.querySelector(".fortune-selector").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU8MVB7vUFdXwqobrXwhjfhmjaj00olenMYZYwvH13EA&s=10";
+  prophecy.style.display = "block";
+  message = "Why don't you join her, honey?";
+  i=0;
+  GOTTACATCHEMALL.textContent = "";
+  typing = true;
+  typewriter();
+  return;
+}
 
   if (event.target === button) {
     message = "You're a curious one, Elera. Emphemera are things that do not last...";
