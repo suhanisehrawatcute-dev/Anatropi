@@ -143,7 +143,6 @@ prophecy.querySelector(".fortune-teller").src =
 document.addEventListener("keydown", function (event){
   if (event.code === "Space" && !typing && fightingKnights){
     event.preventDefault();
-    choiceContainer.style.display = "none";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "flex";
@@ -213,14 +212,20 @@ choiceContainer.addEventListener("click", function (event) {
     event.target !== whatchaon
   ){
     return; }
+    choiceContainer.style.display = "none";
 
   if (event.target === button) {
     message = "You're a curious one, Elera. Emphemera are things that do not last...";
-    choiceContainer.style.display = "none";
     dialogueStage = 1;
+
+  } else if (event.target === second) {
+    message = "Heard what? The bird song? The laughter? The shrieks of your worst enemies? Just joking.";
+    dialogueStage = 1;
+
   } else if (event.target === oohooh) {
     message = "A prophecy? Oh little ephemeron... anyone can see you are destined for something far bigger than yourself";
     dialogueStage = 2;
+
   } else if (event.target === whatchaon) {
     message = "You must start here in this very town, correct the wrong in this town and the world. That is how you will fulfill your destiny.";
     dialogueStage = 3;
