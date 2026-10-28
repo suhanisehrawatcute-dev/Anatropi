@@ -247,7 +247,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
         top: 300px;
         display: none;
         background-image: url("https://i.pinimg.com/736x/2d/b9/99/2db99912c2879d7547e27c316b97f59d.jpg");
-        z-index: 3;
+        z-index: 2;
     }
     .knight-two {
         position: absolute;
@@ -259,7 +259,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
         top: 300px;
         display: none;
         background-image: url("https://i.pinimg.com/736x/2d/b9/99/2db99912c2879d7547e27c316b97f59d.jpg");
-        z-index: 3;
+        z-index: 2;
     }
     .young-girl {
         position: absolute;
@@ -271,6 +271,6 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
         top: 360px;
         display: none;
         background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAzrWybkPNCNXhDtpKWuDfYSfGfHqjaWksL3ldPrkJLQ&s=10");
-        z-index: 3;
+        z-index: 2;
     } 
     
