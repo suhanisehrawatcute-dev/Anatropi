@@ -173,8 +173,7 @@ document.addEventListener("keydown", function (event){
       second.style.display = "none";
       oohooh.style.display = "inline-block";
       whatchaon.style.display = "none";
-      dialogueStage = 2;
-    }else if (dialogueStage === 2){
+        }else if (dialogueStage === 2){
         choiceContainer.style.display = "flex";
       button.style.display = "none";
       second.style.display = "none";
