@@ -207,9 +207,12 @@ choiceContainer.addEventListener("click", function (event) {
     event.target !== useActions &&
     event.target !== second &&
     event.target !== button &&
-    event.target !== oohooh &&prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxYF5TanLrW4sGuiJYlVj13LF2S9C11dUx1UDuNq98pu8p5HcbHyqsYk&s=10";
-  )
-  } else if (event.target === button) {
+    event.target !== oohooh &&
+    event.target !== whatchaon
+  ){
+    return; }
+
+  if (event.target === button) {
     message = "You're a curious one, Elera. Emphemera are things that do not last...";
     dialogueStage = 1;
   } else if (event.target === oohooh) {
@@ -237,6 +240,7 @@ choiceContainer.addEventListener("click", function (event) {
       eleraBox.left < Math.max(unoBox.right, twoBox.right, girlBox.right) &&
       eleraBox.bottom > Math.min(unoBox.top, twoBox.top, girlBox.top) &&
       eleraBox.top < Math.max(unoBox.bottom, twoBox.bottom, girlBox.bottom);
+    
 
       if (overlapping) {
         fightingKnights = true;
@@ -249,7 +253,6 @@ choiceContainer.addEventListener("click", function (event) {
         const actualbadKnights = document.querySelector(".actualbadknights");
         actualbadKnights.style.display = "block";
 const prophecy = document.querySelector(".prophecy");
-prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxYF5TanLrW4sGuiJYlVj13LF2S9C11dUx1UDuNq98pu8p5HcbHyqsYk&s=10";
 prophecy.style.display = "block";
 GOTTACATCHEMALL.textContent = "";
 choiceContainer.style.display = "none";
