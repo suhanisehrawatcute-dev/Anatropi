@@ -143,8 +143,9 @@ prophecy.querySelector(".fortune-teller").src =
   }
 }
 document.addEventListener("keydown", function (event){
-  if (event.code === "Space" && !typing && fightingKnights && firstOutcomedialogue){
+  if (event.code === "Space" && !typing && firstOutcomedialogue){
     event.preventDefault();
+    firstOutcomedialogue = false;
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "flex";
