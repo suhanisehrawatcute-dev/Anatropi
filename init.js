@@ -215,6 +215,23 @@ choiceContainer.addEventListener("click", function (event) {
   ){
     return; }
     choiceContainer.style.display = "none";
+    if (event.target === useActions) {
+      good -= 10;
+      justice += 5;
+      fightingKnights = false;
+      knightfightSceneDone = true;
+      const actualbadKnights = document.querySelector(".actualbadknights");
+      actualbadKnights.style.display = "none";
+      const prophecy = document.querySelector(".prophecy");
+      prophecy.querySelector(".fortune-teller").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTExrkYNyzGC31vcfYlXJ_eYD62SiVqrwEBqM8oRBs4Hw&s=10";
+      prophecy.style.display = "block";
+      message = "You punch the first knight and quickly get into a brawl. The girl runs away.";
+      i = 0;
+      GOTTACATCHEMALL.textContent = "";
+      typing = true;
+      typewriter();
+      return;
+    }
 if (event.target === useWords) {
   good += 5;
   justice -= 10;
