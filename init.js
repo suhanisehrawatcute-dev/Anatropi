@@ -220,10 +220,10 @@ if (event.target === useWords) {
   justice -= 10;
   fightingKnights = false;
   knightfightSceneDone = true;
-  const actualbadKnights = document.querySelector(".actualbadKnights");
+  const actualbadKnights = document.querySelector(".actualbadknights");
   actualbadKnights.style.display = "none";
   const prophecy = document.querySelector(".prophecy");
-  prophecy.querySelector(".fortune-selector").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU8MVB7vUFdXwqobrXwhjfhmjaj00olenMYZYwvH13EA&s=10";
+  prophecy.querySelector(".fortune-teller").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU8MVB7vUFdXwqobrXwhjfhmjaj00olenMYZYwvH13EA&s=10";
   prophecy.style.display = "block";
   message = "Why don't you join her, honey?";
   i=0;
