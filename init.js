@@ -22,7 +22,7 @@ const oohooh = document.createElement ("button");
 const whatchaon = document.createElement ("button");
 whatchaon.textContent = "How can I fulfill what the stars expect of me?";
 whatchaon.style.display = "none";
-let fightingKnights = false;
+let firstOutcomedialogue = false;
 let knightfightSceneDone = false;
 choiceContainer.appendChild(whatchaon);
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
@@ -143,7 +143,7 @@ prophecy.querySelector(".fortune-teller").src =
   }
 }
 document.addEventListener("keydown", function (event){
-  if (event.code === "Space" && !typing && fightingKnights){
+  if (event.code === "Space" && !typing && fightingKnights && firstOutcomedialogue){
     event.preventDefault();
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
@@ -224,6 +224,7 @@ choiceContainer.addEventListener("click", function (event) {
       actualbadKnights.style.display = "none";
       const prophecy = document.querySelector(".prophecy");
       prophecy.querySelector(".fortune-teller").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTExrkYNyzGC31vcfYlXJ_eYD62SiVqrwEBqM8oRBs4Hw&s=10";
+      firstOutcomedialogue = true;
       prophecy.style.display = "block";
       message = "You punch the first knight and quickly get into a brawl. The girl runs away.";
       i = 0;
