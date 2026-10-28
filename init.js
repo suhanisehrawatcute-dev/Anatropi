@@ -143,6 +143,7 @@ prophecy.querySelector(".fortune-teller").src =
 document.addEventListener("keydown", function (event){
   if (event.code === "Space" && !typing && fightingKnights){
     event.preventDefault();
+    choiceContainer.style.display = "none";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "flex";
@@ -154,6 +155,7 @@ document.addEventListener("keydown", function (event){
     useActions.style.display = "inline-block";    }
       if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
     event.preventDefault();
+    choiceContainer.style.display = "none";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     if (dialogueStage === 0) {
@@ -214,6 +216,7 @@ choiceContainer.addEventListener("click", function (event) {
 
   if (event.target === button) {
     message = "You're a curious one, Elera. Emphemera are things that do not last...";
+    choiceContainer.style.display = "none";
     dialogueStage = 1;
   } else if (event.target === oohooh) {
     message = "A prophecy? Oh little ephemeron... anyone can see you are destined for something far bigger than yourself";
@@ -253,6 +256,7 @@ choiceContainer.addEventListener("click", function (event) {
         const actualbadKnights = document.querySelector(".actualbadknights");
         actualbadKnights.style.display = "block";
 const prophecy = document.querySelector(".prophecy");
+prophecy.querySelector(".fortune-teller").src = "https://therebelution.com/wp-content/uploads/2006/08/lancelot_header.jpg";
 prophecy.style.display = "block";
 GOTTACATCHEMALL.textContent = "";
 choiceContainer.style.display = "none";
