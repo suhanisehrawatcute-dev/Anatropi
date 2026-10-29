@@ -1,319 +1,397 @@
-unsafe-eval;
+
 let good = 0;
 let justice = 0;
+
 const elera = document.querySelector(".elera");
-const useWords = document.createElement("button");
-const useActions = document.createElement("button");
-useWords.textContent = "Leave her alone!!!";
-useActions.textContent = "Punch the guard";
-useWords.style.display = "none";
-useActions.style.display = "none";
-const tellerPath = document.querySelector(".tellerpath");
-const background = document.querySelector(".town-start");
-const fortune = document.querySelector(".fortune");
-let prophecyRead = false;
 const knightUno = document.querySelector(".knight-uno");
 const knightTwo = document.querySelector(".knight-two");
 const youngGirl = document.querySelector(".young-girl");
-const TOBEORNOTTOBE = document.querySelector(".TO-BE-OR-NOT-TO-BE");
+const tellerPath = document.querySelector(".tellerpath");
+const background = document.querySelector(".town-start");
+const fortune = document.querySelector(".fortune");
+const prophecy = document.querySelector(".prophecy");
 const choiceContainer = document.querySelector("#choices-choices-choices");
-const button = document.createElement("button");
-const second = document.createElement("button");
-const oohooh = document.createElement ("button");
-const whatchaon = document.createElement ("button");
-whatchaon.textContent = "How can I fulfill what the stars expect of me?";
-whatchaon.style.display = "none";
-let firstOutcomedialogue = false;
-let fightingKnights = false;
-let knightfightSceneDone = false;
-choiceContainer.appendChild(whatchaon);
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
 const continueText = document.querySelector(".dialouge-arrow");
+
+const button = document.createElement("button");
+const second = document.createElement("button");
+const oohooh = document.createElement("button");
+const whatchaon = document.createElement("button");
+const useWords = document.createElement("button");
+const useActions = document.createElement("button");
+
 button.textContent = "What's ephemera?";
 second.textContent = "So...I heard something.";
 oohooh.textContent = "You got prophecy? ehehheheh";
-oohooh.style.display = "none";
-button.style.display = "none";
-second.style.display = "none";
-choiceContainer.appendChild(button);
-choiceContainer.appendChild(second);
-choiceContainer.appendChild (oohooh);
-choiceContainer.appendChild (whatchaon);
-choiceContainer.appendChild(useWords);
-choiceContainer.appendChild(useActions);
+whatchaon.textContent = "How can I fulfill what the stars expect of me?";
+useWords.textContent = "Leave her alone!!!";
+useActions.textContent = "Punch the guard";
+
+const dialogueButtons = [
+  button,
+  second,
+  oohooh,
+  whatchaon,
+  useWords,
+  useActions
+];
+
+dialogueButtons.forEach(btn => {
+  btn.style.display = "none";
+  choiceContainer.appendChild(btn);
+});
+
 choiceContainer.style.display = "none";
-let dialogueStage = 0;
+
+let prophecyRead = false;
+let firstOutcomedialogue = false;
+let fightingKnights = false;
+let knightfightSceneDone = false;
+let changingMap = false;
 let talkingToFortune = false;
-let i = 0;
 let typing = false;
 let choicesShown = false;
+let dialogueStage = 0;
+let i = 0;
 let message = "You, Elera, can choose to be an emphemera...";
+let position = 513;
+let ladada = 681;
+let typewriterRun = 0;
 
-function typewriter() {
-  if (i < message.length) {
-    GOTTACATCHEMALL.textContent += message[i];
-    i++;
-    setTimeout(typewriter, 50);
-  } else {
-    continueText.textContent = "PRESS SPACE TO CONTINUE";
-    typing = false;
-  }
+function hideChoices() {
+  dialogueButtons.forEach(btn => {
+    btn.style.display = "none";
+  });
+
+  choiceContainer.style.display = "none";
+  choicesShown = false;
 }
 
-let changingMap = false;
+function showChoices(buttons) {
+  hideChoices();
 
+  choiceContainer.style.display = "flex";
+
+  buttons.forEach(btn => {
+    btn.style.display = "inline-block";
+  });
+
+  choicesShown = true;
+}
+
+function typewriter() {
+  const thisRun = ++typewriterRun;
+
+  typing = true;
+  continueText.textContent = "";
+
+  function writeNext() {
+    if (thisRun !== typewriterRun) return;
+
+    if (i < message.length) {
+      GOTTACATCHEMALL.textContent += message[i];
+      i++;
+      setTimeout(writeNext, 50);
+    } else {
+      typing = false;
+      continueText.textContent = "PRESS SPACE TO CONTINUE";
+    }
+  }
+
+  writeNext();
+}
+
+function setDialogue(text) {
+  message = text;
+  i = 0;
+  GOTTACATCHEMALL.textContent = "";
+  typewriter();
+}
+
+function overlaps(elementA, elementB) {
+  const a = elementA.getBoundingClientRect();
+  const b = elementB.getBoundingClientRect();
+
+  return (
+    a.width > 0 &&
+    a.height > 0 &&
+    b.width > 0 &&
+    b.height > 0 &&
+    a.right > b.left &&
+    a.left < b.right &&
+    a.bottom > b.top &&
+    a.top < b.bottom
+  );
+}
 function checkTellerPath() {
-  if (changingMap) return;
-  const eleraBox = elera.getBoundingClientRect();
-  const exitBox = tellerPath.getBoundingClientRect();
-  const overlapping =
-    eleraBox.right > exitBox.left &&
-    eleraBox.left < exitBox.right &&
-    eleraBox.bottom > exitBox.top &&
-    eleraBox.top < exitBox.bottom;
+  if (changingMap || talkingToFortune || fightingKnights) return;
 
-  if (overlapping) {
+  if (overlaps(elera, tellerPath)) {
     changingMap = true;
-    background.style.backgroundImage = 'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
+
+    background.style.backgroundImage =
+      'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
+
     ladada = 0;
-    elera.style.left = ladada + "px";
     position = 284;
+
+    elera.style.left = ladada + "px";
     elera.style.top = position + "px";
+
     changingMap = false;
   }
 }
 
-let position = 513;
-let ladada = 681;
-
-document.addEventListener("keydown", function (DUMBWAYSTODIE) {
-  if (DUMBWAYSTODIE.key === "ArrowUp") {
-    position -= 5;
-    if (position < 0) {
-      position = 0;
-    }
-    elera.style.top = position + "px";
-  } else if (DUMBWAYSTODIE.key === "ArrowDown") {
-    position += 5;
-    if (position > 533) {
-      position = 533;
-    }
-    elera.style.top = position + "px";
-  } else if (DUMBWAYSTODIE.key === "ArrowLeft") {
-    ladada -= 5;
-    if (ladada < 0) {
-      ladada = 0;
-    }
-    elera.style.left = ladada + "px";
-  } else if (DUMBWAYSTODIE.key === "ArrowRight") {
-    ladada += 5;
-    if (ladada > 1364) {
-      ladada = 1364;
-    }
-    elera.style.left = ladada + "px";
-  }
-
-  checkTellerPath();
-  checkFortune();
-  checkKnights();
-});
-
 function checkFortune() {
-  const eleraBox = elera.getBoundingClientRect();
-  const tellerBox = fortune.getBoundingClientRect();
-  const overlapping =
-    eleraBox.right > tellerBox.left &&
-    eleraBox.left < tellerBox.right &&
-    eleraBox.bottom > tellerBox.top &&
-    eleraBox.top < tellerBox.bottom;
-
-  if (overlapping && !talkingToFortune && !prophecyRead) {
-    talkingToFortune = true;
-    elera.style.display = "none";
-    background.style.backgroundImage =
-      'url("https://media.istockphoto.com/id/1390072590/photo/creepy-room-and-silhouette-witch-and-crow.jpg?s=612x612&w=0&k=20&c=Nv8h4nL50PwnYW1yvjSxwAkhJTFziwlhDuEzgye4zI8=")';
-    const prophecy = document.querySelector(".prophecy");
-prophecy.querySelector(".fortune-teller").src =
-  "https://media.istockphoto.com/id/503569683/photo/terrier-dog-fortune-teller.jpg?s=612x612&w=0&k=20&c=Gij49pGtxOM5v6rnKuAD4XrFoZLVqatg83bG5AV0sv4=";    prophecy.style.display = "block";
-    GOTTACATCHEMALL.textContent = "";
-    choiceContainer.style.display = "none";
-    button.style.display = "none";
-    second.style.display = "none";
-    i = 0;
-    typing = true;
-    typewriter();
-  }
-}
-document.addEventListener("keydown", function (event){
-  if (event.code === "Space" && !typing && firstOutcomedialogue){
-    event.preventDefault();
-    firstOutcomedialogue = false;
-    continueText.textContent = "";
-    GOTTACATCHEMALL.textContent = "";
-    choiceContainer.style.display = "flex";
-    button.style.display = "none";
-    second.style.display = "none";
-    oohooh.style.display = "none";
-    whatchaon.style.display = "none";
-    useWords.style.display = "inline-block";
-    useActions.style.display = "inline-block";    }
-      if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
-    event.preventDefault();
-    choiceContainer.style.display = "none";
-    continueText.textContent = "";
-    GOTTACATCHEMALL.textContent = "";
-    if (dialogueStage === 0) {
-      choiceContainer.style.display = "flex";
-      button.style.display = "inline-block";
-      second.style.display = "inline-block";
-      oohooh.style.display = "none";
-      whatchaon.style.display = "none";
-      choicesShown = true;
-    } else if (dialogueStage === 1){
-      choiceContainer.style.display = "flex";
-      button.style.display = "none";
-      second.style.display = "none";
-      oohooh.style.display = "inline-block";
-      whatchaon.style.display = "none";
-        }else if (dialogueStage === 2){
-        choiceContainer.style.display = "flex";
-      button.style.display = "none";
-      second.style.display = "none";
-      oohooh.style.display = "none";
-      whatchaon.style.display = "inline-block";
-    }
-    else if (dialogueStage === 3) {
-      message = "Goodbye little ephemeron, just remember that the line between saving a world and ruling it is thinner than you think...";
-      dialogueStage = 4;
-      i = 0;
-      GOTTACATCHEMALL.textContent = "";
-      typing = true;
-      typewriter();
-    }
-    else if (dialogueStage === 4) {
-      document.querySelector(".prophecy").style.display = "none";
-      background.style.backgroundImage = 'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
-      elera.style.display = "block";
-      elera.style.opacity = "1";
-      document.querySelector (".knight-uno").style.display = "block";
-      document.querySelector (".knight-two").style.display = "block";
-      document.querySelector (".young-girl").style.display = "block";
-      talkingToFortune = false;
-      dialogueStage = 5;
-      prophecyRead = true;
-    }
-  }
-});
-
-
-choiceContainer.addEventListener("click", function (event) {
   if (
-    event.target !== useWords &&
-    event.target !== useActions &&
-    event.target !== second &&
-    event.target !== button &&
-    event.target !== oohooh &&
-    event.target !== whatchaon
-  ){
-    return; }
-    choiceContainer.style.display = "none";
-    if (event.target === useActions) {
-      good -= 10;
-      justice += 5;
-      fightingKnights = false;
-      knightfightSceneDone = true;
-      const actualbadKnights = document.querySelector(".actualbadknights");
-      actualbadKnights.style.display = "none";
-      const prophecy = document.querySelector(".prophecy");
-      prophecy.querySelector(".fortune-teller").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTExrkYNyzGC31vcfYlXJ_eYD62SiVqrwEBqM8oRBs4Hw&s=10";
-      firstOutcomedialogue = true;
-      prophecy.style.display = "block";
-      message = "You punch the first knight and quickly get into a brawl. The girl runs away.";
-      i = 0;
-      GOTTACATCHEMALL.textContent = "";
-      typing = true;
-      typewriter();
+    talkingToFortune ||
+    prophecyRead ||
+    fightingKnights ||
+    knightfightSceneDone
+  ) return;
+
+  if (!overlaps(elera, fortune)) return;
+
+  talkingToFortune = true;
+  elera.style.display = "none";
+
+  background.style.backgroundImage =
+    'url("https://media.istockphoto.com/id/1390072590/photo/creepy-room-and-silhouette-witch-and-crow.jpg?s=612x612&w=0&k=20&c=Nv8h4nL50PwnYW1yvjSxwAkhJTFziwlhDuEzgye4zI8=")';
+
+  prophecy.querySelector(".fortune-teller").src =
+    "https://media.istockphoto.com/id/503569683/photo-terrier-dog-fortune-teller.jpg?s=612x612&w=0&k=20&c=Gij49pGtxOM5v6rnKuAD4XrFoZLVqatg83bG5AV0sv4=";
+
+  prophecy.style.display = "block";
+
+  hideChoices();
+  dialogueStage = 0;
+
+  setDialogue(
+    "You, Elera, can choose to be an emphemera..."
+  );
+}
+
+function checkKnights() {
+  if (
+    talkingToFortune ||
+    fightingKnights ||
+    knightfightSceneDone ||
+    elera.style.display === "none"
+  ) return;
+
+  const visible = element =>
+    getComputedStyle(element).display !== "none" &&
+    element.getBoundingClientRect().width > 0 &&
+    element.getBoundingClientRect().height > 0;
+
+  const collision =
+    (visible(knightUno) && overlaps(elera, knightUno)) ||
+    (visible(knightTwo) && overlaps(elera, knightTwo)) ||
+    (visible(youngGirl) && overlaps(elera, youngGirl));
+
+  if (!collision) return;
+  fightingKnights = true;
+  elera.style.display = "none";
+
+  knightUno.style.display = "none";
+  knightTwo.style.display = "none";
+  youngGirl.style.display = "none";
+
+  background.style.backgroundImage =
+    'url("https://media.istockphoto.com/id/1269719686/photo/european-medieval-or-fantasy-town-square-on-a-sunny-day.jpg?s=612x612&w=0&k=20&c=mht4VcuaDug1plQ17MIdc9lxkO1OFESqICHPJs8alwY=")';
+
+  const actualbadKnights =
+    document.querySelector(".actualbadknights");
+
+  actualbadKnights.style.display = "block";
+
+  prophecy.querySelector(".fortune-teller").src =
+    "https://therebelution.com/wp-content/uploads/2006/08/lancelot_header.jpg";
+
+  prophecy.style.display = "block";
+
+  hideChoices();
+
+  setDialogue("Don't be shy, sweetheart");
+}
+
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space") {
+    if (typing) {
+      event.preventDefault();
       return;
     }
-if (event.target === useWords) {
-  good += 5;
-  justice -= 10;
-  fightingKnights = false;
-  knightfightSceneDone = true;
-  const actualbadKnights = document.querySelector(".actualbadknights");
-  actualbadKnights.style.display = "none";
-  const prophecy = document.querySelector(".prophecy");
-  prophecy.querySelector(".fortune-teller").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU8MVB7vUFdXwqobrXwhjfhmjaj00olenMYZYwvH13EA&s=10";
-  prophecy.style.display = "block";
-  message = "Why don't you join her, honey?";
-  i=0;
-  GOTTACATCHEMALL.textContent = "";
-  typing = true;
-  typewriter();
-  return;
-}
 
-  if (event.target === button) {
-    message = "You're a curious one, Elera. Emphemera are things that do not last...";
-    dialogueStage = 1;
+    if (talkingToFortune) {
+      event.preventDefault();
 
-  } else if (event.target === second) {
-    message = "Heard what? The bird song? The laughter? The shrieks of your worst enemies? Just joking.";
-    dialogueStage = 1;
+      if (choicesShown) return;
 
-  } else if (event.target === oohooh) {
-    message = "A prophecy? Oh little ephemeron... anyone can see you are destined for something far bigger than yourself";
-    dialogueStage = 2;
+      continueText.textContent = "";
+      GOTTACATCHEMALL.textContent = "";
 
-  } else if (event.target === whatchaon) {
-    message = "You must start here in this very town, correct the wrong in this town and the world. That is how you will fulfill your destiny.";
-    dialogueStage = 3;
+      if (dialogueStage === 0) {
+        showChoices([button, second]);
+      } else if (dialogueStage === 1) {
+        showChoices([oohooh]);
+      } else if (dialogueStage === 2) {
+        showChoices([whatchaon]);
+      } else if (dialogueStage === 3) {
+        dialogueStage = 4;
+
+        setDialogue(
+          "Goodbye little ephemeron, just remember that the line between saving a world and ruling it is thinner than you think..."
+        );
+      } else if (dialogueStage === 4) {
+        prophecy.style.display = "none";
+
+        background.style.backgroundImage =
+          'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
+
+        elera.style.display = "block";
+        elera.style.opacity = "1";
+
+        knightUno.style.display = "block";
+        knightTwo.style.display = "block";
+        youngGirl.style.display = "block";
+
+        talkingToFortune = false;
+        prophecyRead = true;
+        dialogueStage = 5;
+
+        GOTTACATCHEMALL.textContent = "";
+        continueText.textContent = "";
+        hideChoices();
+      }
+
+      return;
+    }
+
+    if (fightingKnights) {
+      event.preventDefault();
+
+      if (choicesShown) return;
+
+      showChoices([useWords, useActions]);
+      continueText.textContent = "";
+      return;
+    }
+
+    if (firstOutcomedialogue) {
+      event.preventDefault();
+      firstOutcomedialogue = false;
+
+      GOTTACATCHEMALL.textContent = "";
+      continueText.textContent = "";
+
+      showChoices([useWords, useActions]);
+      return;
+    }
+
+    return;
+  }
+  if (
+    talkingToFortune ||
+    fightingKnights ||
+    knightfightSceneDone ||
+    typing ||
+    elera.style.display === "none"
+  ) return;
+
+  if (event.key === "ArrowUp") {
+    position = Math.max(0, position - 5);
+  } else if (event.key === "ArrowDown") {
+    position = Math.min(533, position + 5);
+  } else if (event.key === "ArrowLeft") {
+    ladada = Math.max(0, ladada - 5);
+  } else if (event.key === "ArrowRight") {
+    ladada = Math.min(1364, ladada + 5);
+  } else {
+    return;
   }
 
-  i = 0;
-  GOTTACATCHEMALL.textContent = "";
-  typing = true;
-  typewriter();
+  event.preventDefault();
+
+  elera.style.top = position + "px";
+  elera.style.left = ladada + "px";
+
+  checkKnights();
+
+  if (fightingKnights) return;
+
+  checkFortune();
+
+  if (talkingToFortune) return;
+
+  checkTellerPath();
 });
+choiceContainer.addEventListener("click", function (event) {
+  const selected = event.target;
 
-      function checkKnights() {
-        if (talkingToFortune || fightingKnights || knightfightSceneDone) return;
-        const eleraBox = elera.getBoundingClientRect();
-        const unoBox = knightUno.getBoundingClientRect();
-        const twoBox = knightTwo.getBoundingClientRect();
-        const girlBox = youngGirl.getBoundingClientRect();
-        const overlaps = box =>
-          eleraBox.right > box.left &&
-        eleraBox.left < box.right &&
-        eleraBox.bottom > box.top &&
-        eleraBox.top <box.bottom;
-        
-        const overlapping =
-        overlaps(unoBox) ||
-        overlaps(twoBox) ||
-        overlaps(girlBox);
+  if (!dialogueButtons.includes(selected)) return;
 
-      if (overlapping) {
-        fightingKnights = true;
-        typing = true;
-        elera.style.display = "none";
-        knightUno.style.display = "none";
-        knightTwo.style.display = "none";
-        youngGirl.style.display = "none";
-        background.style.backgroundImage = 'url("https://media.istockphoto.com/id/1269719686/photo/european-medieval-or-fantasy-town-square-on-a-sunny-day.jpg?s=612x612&w=0&k=20&c=mht4VcuaDug1plQ17MIdc9lxkO1OFESqICHPJs8alwY=")';
-        const actualbadKnights = document.querySelector(".actualbadknights");
-        actualbadKnights.style.display = "block";
-const prophecy = document.querySelector(".prophecy");
-prophecy.querySelector(".fortune-teller").src = "https://therebelution.com/wp-content/uploads/2006/08/lancelot_header.jpg";
-prophecy.style.display = "block";
-GOTTACATCHEMALL.textContent = "";
-choiceContainer.style.display = "none";
-useActions.style.display = "none";
-useWords.style.display = "none";
-continueText.textContent = "";
-message = "Don't be shy, sweetheart";
-i = 0;
-typing = true;
-typewriter();
-      }
-      }
+  if (selected === useActions || selected === useWords) {
+    if (!fightingKnights) return;
+
+    fightingKnights = false;
+    knightfightSceneDone = true;
+
+    hideChoices();
+
+    const actualbadKnights =
+      document.querySelector(".actualbadknights");
+
+    actualbadKnights.style.display = "none";
+
+    if (selected === useActions) {
+      good -= 10;
+      justice += 5;
+
+      prophecy.querySelector(".fortune-teller").src =
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTExrkYNyzGC31vcfYlXJ_eYD62SiVqrwEBqM8oRBs4Hw&s=10";
+
+      setDialogue(
+        "You punch the first knight and quickly get into a brawl. The girl runs away."
+      );
+    } else {
+      good += 5;
+      justice -= 10;
+
+      prophecy.querySelector(".fortune-teller").src =
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU8MVB7vUFdXwqobrXwhjfhmjaj00olenMYZYwvH13EA&s=10";
+
+      setDialogue("Why don't you join her, honey?");
+    }
+
+    prophecy.style.display = "block";
+    firstOutcomedialogue = true;
+    return;
+  }
+
+  if (!talkingToFortune || typing) return;
+
+  hideChoices();
+
+  if (selected === button) {
+    setDialogue(
+      "You're a curious one, Elera. Emphemera are things that do not last..."
+    );
+    dialogueStage = 1;
+  } else if (selected === second) {
+    setDialogue(
+      "Heard what? The bird song? The laughter? The shrieks of your worst enemies? Just joking."
+    );
+    dialogueStage = 1;
+  } else if (selected === oohooh) {
+    setDialogue(
+      "A prophecy? Oh little ephemeron... anyone can see you are destined for something far bigger than yourself"
+    );
+    dialogueStage = 2;
+  } else if (selected === whatchaon) {
+    setDialogue(
+      "You must start here in this very town, correct the wrong in this town and the world. That is how you will fulfill your destiny."
+    );
+    dialogueStage = 3;
+  }
+});

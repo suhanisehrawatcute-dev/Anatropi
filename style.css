@@ -238,7 +238,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     right: 20px;
     bottom: 12px;}
     .knight-uno {
-        position: absolute;
+        position: fixed;
         width: 73px;
         height: 87px;
         background-size: contain;
@@ -250,7 +250,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
         z-index: 2;
     }
     .knight-two {
-        position: absolute;
+        position: fixed;
         width: 73px;
         height: 87px;
         background-size: contain;
@@ -262,7 +262,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
         z-index: 2;
     }
     .young-girl {
-        position: absolute;
+        position: fixed;
         width: 63px;
         height: 69px;
         background-size: contain;
