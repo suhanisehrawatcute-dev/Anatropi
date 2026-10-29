@@ -1,3 +1,4 @@
+unsafe-eval;
 let good = 0;
 let justice = 0;
 const elera = document.querySelector(".elera");
