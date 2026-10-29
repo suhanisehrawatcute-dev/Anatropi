@@ -23,6 +23,7 @@ const whatchaon = document.createElement ("button");
 whatchaon.textContent = "How can I fulfill what the stars expect of me?";
 whatchaon.style.display = "none";
 let firstOutcomedialogue = false;
+let fightingKnights = false;
 let knightfightSceneDone = false;
 choiceContainer.appendChild(whatchaon);
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
