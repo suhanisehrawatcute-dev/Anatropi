@@ -157,7 +157,7 @@ animation: 80s linear 12s forwards translateText, 2s linear 91s forwards StacysM
     opacity: 0;
     pointer-events: none;
     z-index: 100;
-    animation: sceneTransition 5s ease-in 90s forwards;
+    animation: sceneTransition 5s ease-in 53s forwards;
 }
 @keyframes sceneTransition {
     0% { opacity: 0; }
