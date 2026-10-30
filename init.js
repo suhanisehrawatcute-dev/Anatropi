@@ -160,7 +160,7 @@ function checkFortune() {
     'url("https://media.istockphoto.com/id/1390072590/photo/creepy-room-and-silhouette-witch-and-crow.jpg?s=612x612&w=0&k=20&c=Nv8h4nL50PwnYW1yvjSxwAkhJTFziwlhDuEzgye4zI8=")';
 
   prophecy.querySelector(".fortune-teller").src =
-    "https://media.istockphoto.com/id/503569683/photo-terrier-dog-fortune-teller.jpg?s=612x612&w=0&k=20&c=Gij49pGtxOM5v6rnKuAD4XrFoZLVqatg83bG5AV0sv4=";
+    "https://media.istockphoto.com/id/503569683/photo/terrier-dog-fortune-teller.jpg?s=612x612&w=is&k=20&c=BVJSsX0piLnxXdLgsHvo4SxA0lb4vD0C4kJrW2j-9mw=";
 
   prophecy.style.display = "block";
 
@@ -207,7 +207,7 @@ function checkKnights() {
   actualbadKnights.style.display = "block";
 
   prophecy.querySelector(".fortune-teller").src =
-    "https://therebelution.com/wp-content/uploads/2006/08/lancelot_header.jpg";
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN3coUR_HnNaGAs5mGRYv3qq_VNPzFtztFleKwBcowkA&s=10";
 
   prophecy.style.display = "block";
 
