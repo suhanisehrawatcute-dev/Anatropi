@@ -333,17 +333,3 @@ typewriter();
 
 
 
-
-
-elera.style.display = "block";
-elera.style.opacity = "1";
-ladada = 400;
-position = 300;
-elera.style.left = ladada + "px";
-elera.style.top = position + "px";
-knightUno.style.display = "block";
-knightTwo.style.display = "block";
-youngGirl.style.display = "block";
-checkKnights();
-
-
