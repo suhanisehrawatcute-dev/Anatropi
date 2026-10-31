@@ -13,6 +13,14 @@ const background = document.querySelector(".town-start");
 const fortune = document.querySelector(".fortune");
 let prophecyRead = false;
 const knightUno = document.querySelector(".knight-uno");
+const roundWay = document.createElement("button");
+const straightWay =  document.createElement("button");
+roundWay.textContent = "Distract";
+straightWay.textContent = "Fight";
+roundWay.style.display = "none";
+straightWay.style.display = "none";
+choiceContainer.appendChild(straightWay);
+choiceContainer.appendChild(roundway);
 const knightTwo = document.querySelector(".knight-two");
 const youngGirl = document.querySelector(".young-girl");
 const TOBEORNOTTOBE = document.querySelector(".TO-BE-OR-NOT-TO-BE");
@@ -154,8 +162,10 @@ button.style.display = "none";
 second.style.display = "none";
 oohooh.style.display = "none";
 whatchaon.style.display = "none";
-useWords.style.display = "inline-block";
-useActions.style.display = "inline-block"; }
+useWords.style.display = "none";
+useActions.style.display = "none"; 
+straightWay.style.display = "inline-block";
+roundWay.style.display = "inline-block";
 if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
 event.preventDefault();
 choiceContainer.style.display = "none";
@@ -315,7 +325,7 @@ firstOutcomedialogue = true;
 i = 0;
 typing = true;
 typewriter();
-}
+} 
 }
 
 
@@ -333,5 +343,7 @@ elera.style.left = ladada + "px";
 elera.style.top = position + "px";
 knightUno.style.display = "block";
 knightTwo.style.display = "block";
-youngGirl.style.display - "block";
+youngGirl.style.display = "block";
 checkKnights();
+
+
