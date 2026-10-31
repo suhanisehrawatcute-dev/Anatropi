@@ -311,6 +311,7 @@ useActions.style.display = "none";
 useWords.style.display = "none";
 continueText.textContent = "";
 message = "Don't be shy, sweetheart";
+firstOutcomedialogue = true;
 i = 0;
 typing = true;
 typewriter();
