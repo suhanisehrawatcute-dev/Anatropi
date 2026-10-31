@@ -3,6 +3,7 @@ let justice = 0;
 const elera = document.querySelector(".elera");
 const useWords = document.createElement("button");
 const useActions = document.createElement("button");
+const choiceContainer = document.querySelector("#choices-choices-choices");
 useWords.textContent = "Leave her alone!!!";
 let fightingKnights = false;
 useActions.textContent = "Punch the guard";
@@ -20,11 +21,10 @@ straightWay.textContent = "Fight";
 roundWay.style.display = "none";
 straightWay.style.display = "none";
 choiceContainer.appendChild(straightWay);
-choiceContainer.appendChild(roundway);
+choiceContainer.appendChild(roundWay);
 const knightTwo = document.querySelector(".knight-two");
 const youngGirl = document.querySelector(".young-girl");
 const TOBEORNOTTOBE = document.querySelector(".TO-BE-OR-NOT-TO-BE");
-const choiceContainer = document.querySelector("#choices-choices-choices");
 const button = document.createElement("button");
 const second = document.createElement("button");
 const oohooh = document.createElement ("button");
@@ -166,6 +166,7 @@ useWords.style.display = "none";
 useActions.style.display = "none"; 
 straightWay.style.display = "inline-block";
 roundWay.style.display = "inline-block";
+}
 if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
 event.preventDefault();
 choiceContainer.style.display = "none";
@@ -221,7 +222,9 @@ event.target !== useActions &&
 event.target !== second &&
 event.target !== button &&
 event.target !== oohooh &&
-event.target !== whatchaon
+event.target !== whatchaon &&
+event.target !== straightWay &&
+event.target !== roundWay
 ){
 return; }
 choiceContainer.style.display = "none";
