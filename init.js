@@ -4,6 +4,7 @@ const elera = document.querySelector(".elera");
 const useWords = document.createElement("button");
 const useActions = document.createElement("button");
 useWords.textContent = "Leave her alone!!!";
+let fightingKnights = false;
 useActions.textContent = "Punch the guard";
 useWords.style.display = "none";
 useActions.style.display = "none";
