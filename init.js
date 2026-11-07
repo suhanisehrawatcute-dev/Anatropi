@@ -3,6 +3,8 @@ let justice = 0;
 const elera = document.querySelector(".elera");
 const useWords = document.createElement("button");
 const useActions = document.createElement("button");
+const firstKill = document.querySelector(".firstkill");
+const firstMercy = document.querySelector(".firstmercy");
 const choiceContainer = document.querySelector("#choices-choices-choices");
 useWords.textContent = "Leave her alone!!!";
 let fightingKnights = false;
@@ -288,7 +290,10 @@ event.target !== button &&
 event.target !== oohooh &&
 event.target !== whatchaon &&
 event.target !== straightWay &&
-event.target !== roundWay
+event.target !== roundWay &&
+event.target !== firstKill &&
+event.target !== firstMercy
+
 ){
 return; }
 choiceContainer.style.display = "none";
