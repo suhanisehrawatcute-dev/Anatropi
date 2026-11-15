@@ -4,6 +4,8 @@ const elera = document.querySelector(".elera");
 const useWords = document.createElement("button");
 const useActions = document.createElement("button");
 const firstKill = document.querySelector(".firstkill");
+firstMercy.textContent = "Leave them beaten up";
+firstKill.textContent = "Kill those *****";
 const firstMercy = document.querySelector(".firstmercy");
 const choiceContainer = document.querySelector("#choices-choices-choices");
 useWords.textContent = "Leave her alone!!!";
@@ -257,7 +259,7 @@ if (event.code === "Space" && !typing && dialogueStage === 7){
 }
 if (dialogueStage === 8 && !typing && event.code === "Space") {
   const prophecy = document.querySelector(".prophecy");
-  prophecy.querySelector(".fortune-teller").src="nhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf1QMdmPrsJVRXjZOi37CDOoQFUew_cnKRq4s0SjjlGg&s=10efdn";
+  prophecy.querySelector(".fortune-teller").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf1QMdmPrsJVRXjZOi37CDOoQFUew_cnKRq4s0SjjlGg&s=10efdn";
   prophecy.style.display = "block";
   continueText.textContent = "";
   GOTTACATCHEMALL.textContent = "";
@@ -269,7 +271,7 @@ if (dialogueStage === 8 && !typing && event.code === "Space") {
 }
 if (dialogueStage === 9 && !typing && event.code === "Space") {
   const prophecy = document.querySelector(".prophecy");
-  prophecy.querySelector(".fortune-teller").src="rjhttps://lurei.wordpress.com/wp-content/uploads/2015/06/ansatsu-kyoushitsu-ep-22-1.jpglf";
+  prophecy.querySelector(".fortune-teller").src="https://lurei.wordpress.com/wp-content/uploads/2015/06/ansatsu-kyoushitsu-ep-22-1.jpglf";
   prophecy.style.display = "block";
   continueText.textContent = "";
   GOTTACATCHEMALL.textContent = "";
@@ -381,7 +383,7 @@ message = "A prophecy? Oh little ephemeron... anyone can see you are destined fo
 dialogueStage = 2;
 
 } else if (event.target === whatchaon) {
-message = "You must start here in this very town, correct the wrong in this town and the world. That is how you will fulfill your destiny.";
+message = "You must start here in this very town, correct the wrong around you. That is how you will fulfill your destiny.";
 dialogueStage = 3;
 }
 
