@@ -6,12 +6,12 @@ const useWords = document.createElement("button");
 const useActions = document.createElement("button");
 const firstKill = document.createElement("button");
 const firstMercy = document.createElement("button");
-const choiceContainer = document.querySelector("#choices-choices-choices");
 firstKill.textContent = "Kill those";
 firstMercy.textContent = "Leave them beaten up";
-useWords.textContent = "YOU BAD WEBSITE!!";
-useActions.textContent = "Punch the guard";
+const choiceContainer = document.querySelector("#choices-choices-choices");
 let fightingKnights = false;
+useActions.textContent = "Punch the guard";
+useWords.textContent = "YOU BAD WEBSITE!!";
 useWords.style.display = "none";
 useActions.style.display = "none";
 firstKill.style.display = "none";
@@ -21,8 +21,6 @@ const background = document.querySelector(".town-start");
 const fortune = document.querySelector(".fortune");
 let prophecyRead = false;
 const knightUno = document.querySelector(".knight-uno");
-const knightTwo = document.querySelector(".knight-two");
-const youngGirl = document.querySelector(".young-girl");
 const roundWay = document.createElement("button");
 const straightWay = document.createElement("button");
 roundWay.textContent = "Distract";
@@ -31,6 +29,8 @@ roundWay.style.display = "none";
 straightWay.style.display = "none";
 choiceContainer.appendChild(straightWay);
 choiceContainer.appendChild(roundWay);
+const knightTwo = document.querySelector(".knight-two");
+const youngGirl = document.querySelector(".young-girl");
 const TOBEORNOTTOBE = document.querySelector(".TO-BE-OR-NOT-TO-BE");
 const button = document.createElement("button");
 const second = document.createElement("button");
@@ -43,7 +43,7 @@ let knightIntroDialogue = false;
 let knightfightSceneDone = false;
 choiceContainer.appendChild(whatchaon);
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
-const continueText = document.querySelector(".dialogue-arrow");
+const continueText = document.querySelector(".dialouge-arrow");
 button.textContent = "What's ephemera?";
 second.textContent = "So...I heard something.";
 oohooh.textContent = "You got prophecy? ehehheheh";
@@ -93,8 +93,7 @@ function checkTellerPath() {
     eleraBox.top < exitBox.bottom;
   if (overlapping) {
     changingMap = true;
-    background.style.backgroundImage =
-      'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
+    background.style.backgroundImage = 'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
     ladada = 0;
     elera.style.left = ladada + "px";
     position = 284;
@@ -103,30 +102,23 @@ function checkTellerPath() {
   }
 }
 document.addEventListener("keydown", function (DUMBWAYSTODIE) {
+  if (typing) return;
   if (DUMBWAYSTODIE.key === "ArrowUp") {
     position -= 5;
-    if (position < 0) {
-      position = 0;
-    }
+    if (position < 0) position = 0;
     elera.style.top = position + "px";
   } else if (DUMBWAYSTODIE.key === "ArrowDown") {
     position += 5;
-    if (position > 533) {
-      position = 533;
-    }
+    if (position > 533) position = 533;
     elera.style.top = position + "px";
   } else if (DUMBWAYSTODIE.key === "ArrowLeft") {
     ladada -= 5;
-    if (ladada < 0) {
-      ladada = 0;
-    }
+    if (ladada < 0) ladada = 0;
     elera.style.left = ladada + "px";
   } else if (DUMBWAYSTODIE.key === "ArrowRight") {
     ladada += 5;
-    if (ladada > 1364) {
-      ladada = 1364;
-    }
-  elera.style.left = ladada + "px";
+    if (ladada > 1364) ladada = 1364;
+    elera.style.left = ladada + "px";
   }
   checkTellerPath();
   checkFortune();
@@ -143,183 +135,130 @@ function checkFortune() {
   if (overlapping && !talkingToFortune && !prophecyRead) {
     talkingToFortune = true;
     elera.style.display = "none";
-    background.style.backgroundImage =
-      'url("https://media.istockphoto.com/id/1390072590/photo/creepy-room-and-silhouette-witch-and-crow.jpg?s=612x612&w=0&k=20&c=Nv8h4nL50PwnYW1yvjSxwAkhJTFziwlhDuEzgye4zI8=")';
+    background.style.backgroundImage = 'url("https://media.istockphoto.com/id/1390072590/photo/creepy-room-and-silhouette-witch-and-crow.jpg?s=612x612&w=0&k=20&c=Nv8h4nL50PwnYW1yvjSxwAkhJTFziwlhDuEzgye4zI8=")';
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://media.istockphoto.com/id/503569683/photo/terrier-dog-fortune-teller.jpg?s=612x612&w=0&k=20&c=Gij49pGtxOM5v6rnKuAD4XrFoZLVqatg83bG5AV0sv4=";
+    prophecy.querySelector(".fortune-teller").src = "https://media.istockphoto.com/id/503569683/photo/terrier-dog-fortune-teller.jpg?s=612x612&w=0&k=20&c=Gij49pGtxOM5v6rnKuAD4XrFoZLVqatg83bG5AV0sv4=";
     prophecy.style.display = "block";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "none";
-    button.style.display = "none";
-    second.style.display = "none";
     i = 0;
     typing = true;
     typewriter();
   }
 }
 document.addEventListener("keydown", function (event) {
-  if (event.code === "Space" && !typing && knightIntroDialogue) {
+  if (event.code !== "Space" || typing) return;
+  if (knightIntroDialogue) {
     event.preventDefault();
     knightIntroDialogue = false;
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "flex";
-    button.style.display = "none";
-    second.style.display = "none";
-    oohooh.style.display = "none";
-    whatchaon.style.display = "none";
     useActions.style.display = "inline-block";
     useWords.style.display = "inline-block";
-    straightWay.style.display = "none";
-    roundWay.style.display = "none";
-    firstKill.style.display = "none";
-    firstMercy.style.display = "none";
+    return;
   }
-  if (event.code === "Space" && !typing && firstOutcomedialogue) {
+  if (firstOutcomedialogue) {
     event.preventDefault();
     firstOutcomedialogue = false;
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "flex";
-    useActions.style.display = "none";
-    useWords.style.display = "none";
-    straightWay.style.display = "none";
-    roundWay.style.display = "none";
     firstKill.style.display = "inline-block";
     firstMercy.style.display = "inline-block";
+    return;
   }
-  if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !== 5) {
+  if (talkingToFortune && dialogueStage !== 5) {
     event.preventDefault();
-    choiceContainer.style.display = "none";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     if (dialogueStage === 0) {
       choiceContainer.style.display = "flex";
       button.style.display = "inline-block";
       second.style.display = "inline-block";
-      oohooh.style.display = "none";
-      whatchaon.style.display = "none";
-      choicesShown = true;
     } else if (dialogueStage === 1) {
       choiceContainer.style.display = "flex";
-      button.style.display = "none";
-      second.style.display = "none";
       oohooh.style.display = "inline-block";
-      whatchaon.style.display = "none";
     } else if (dialogueStage === 2) {
       choiceContainer.style.display = "flex";
-      button.style.display = "none";
-      second.style.display = "none";
-      oohooh.style.display = "none";
       whatchaon.style.display = "inline-block";
     } else if (dialogueStage === 3) {
       message = "Goodbye little ephemeron, just remember that the line between saving a world and ruling it is thinner than you think...";
       dialogueStage = 4;
       i = 0;
-      GOTTACATCHEMALL.textContent = "";
       typing = true;
       typewriter();
     } else if (dialogueStage === 4) {
       document.querySelector(".prophecy").style.display = "none";
-      background.style.backgroundImage =
-        'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
+      background.style.backgroundImage = 'url("https://plain-apac-prod-public.komododecks.com/202610/20/nBnvbF298y9z5LUCLkcV/image.png")';
       elera.style.display = "block";
       elera.style.opacity = "1";
-      document.querySelector(".knight-uno").style.display = "block";
-      document.querySelector(".knight-two").style.display = "block";
-      document.querySelector(".young-girl").style.display = "block";
+      knightUno.style.display = "block";
+      knightTwo.style.display = "block";
+      youngGirl.style.display = "block";
       talkingToFortune = false;
       dialogueStage = 5;
       prophecyRead = true;
     }
+    return;
   }
-  if (event.code === "Space" && !typing && dialogueStage === 6) {
+  if (dialogueStage === 6) {
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/field_blog_entry_images/shutterstock_140439709.jpg?itok=XFJHSFw3";
+    prophecy.querySelector(".fortune-teller").src = "https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/field_blog_entry_images/shutterstock_140439709.jpg?itok=XFJHSFw3";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     message = "We literally just saw you throw that";
     dialogueStage = 7;
-    i = 0;
-    typing = true;
-    typewriter();
-  }
-  if (event.code === "Space" && !typing && dialogueStage === 7) {
+  } else if (dialogueStage === 7) {
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcudry5Ekxagy_C8PUnqjSlN7Je0AEunJEJnIFWZCQLQ&s=10";
+    prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcudry5Ekxagy_C8PUnqjSlN7Je0AEunJEJnIFWZCQLQ&s=10";
     prophecy.style.display = "block";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     message = "You little, someone wants to pick a fight.";
     dialogueStage = 8;
-    i = 0;
-    typing = true;
-    typewriter();
-  }
-  if (dialogueStage === 8 && !typing && event.code === "Space") {
+  } else if (dialogueStage === 8) {
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="http://plain-apac-prod-public.komododecks.com/202611/15/dc1DJABr34UHHaGN79OK/image.png";
+    prophecy.querySelector(".fortune-teller").src = "http://plain-apac-prod-public.komododecks.com/202611/15/dc1DJABr34UHHaGN79OK/image.png";
     prophecy.style.display = "block";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     message = "You try and your're winning against the knights";
     dialogueStage = 9;
-    i = 0;
-    typing = true;
-    typewriter();
-  }
-  if (dialogueStage === 9 && !typing && event.code === "Space") {
+  } else if (dialogueStage === 9) {
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://plain-apac-prod-public.komododecks.com/202611/15/LLN8y6t980X6pevVaUfM/image.png";
+    prophecy.querySelector(".fortune-teller").src = "https://plain-apac-prod-public.komododecks.com/202611/15/LLN8y6t980X6pevVaUfM/image.png";
     prophecy.style.display = "block";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     message = "You get both into the ground and as you remmeber the look on the girl's face, you realize you need to mak ac choice";
     dialogueStage = 10;
-    i = 0;
-    typing = true;
-    typewriter();
-  }
-  if (event.code === "Space" && !typing && dialogueStage === 10) {
-    event.preventDefault();
+  } else if (dialogueStage === 10) {
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "flex";
-    button.style.display = "none";
-    second.style.display = "none";
-    oohooh.style.display = "none";
-    whatchaon.style.display = "none";
-    useActions.style.display = "none";
-    useWords.style.display = "none";
-    straightWay.style.display = "none";
-    roundWay.style.display = "none";
     firstKill.style.display = "inline-block";
     firstMercy.style.display = "inline-block";
     dialogueStage = 10.1;
-  }
-  if (dialogueStage === 10.5 && season25 === "mercy" && !typing && event.code === "Space") {
-    event.preventDefault();
+    return;
+  } else if (dialogueStage === 10.5 && season25 === "mercy") {
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://plain-apac-prod-public.komododecks.com/202611/15/zzsnK5AV31MVOCEPOIrQ/image.png";
+    prophecy.querySelector(".fortune-teller").src = "https://plain-apac-prod-public.komododecks.com/202611/15/zzsnK5AV31MVOCEPOIrQ/image.png";
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     message = "As you push both knights, they slip on a puddle.";
-    i = 0;
     dialogueStage = 11;
-    typing = true;
-    typewriter();
-    return;
-  }
-  if (event.code === "Space" && !typing && dialogueStage === 11) {
-    event.preventDefault();
+  } else if (dialogueStage === 11) {
     continueText.textContent = "";
     GOTTACATCHEMALL.textContent = "";
     message = "The knights take their final breath. They're dead.";
-    i = 0;
     dialogueStage = 12;
-    typing = true;
-    typewriter();
+  } else {
+    return;
   }
+  i = 0;
+  typing = true;
+  typewriter();
 });
 choiceContainer.addEventListener("click", function (event) {
   if (
@@ -333,9 +272,7 @@ choiceContainer.addEventListener("click", function (event) {
     event.target !== roundWay &&
     event.target !== firstKill &&
     event.target !== firstMercy
-  ) {
-    return;
-  }
+  ) return;
   choiceContainer.style.display = "none";
   if (event.target === useActions) {
     good -= 10;
@@ -345,7 +282,7 @@ choiceContainer.addEventListener("click", function (event) {
     const actualbadKnights = document.querySelector(".actualbadknights");
     actualbadKnights.style.display = "none";
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://plain-apac-prod-public.komododecks.com/202611/15/dvoVdoxSFcfeDWn0Q3M6/image.png";
+    prophecy.querySelector(".fortune-teller").src = "https://plain-apac-prod-public.komododecks.com/202611/15/dvoVdoxSFcfeDWn0Q3M6/image.png";
     prophecy.style.display = "block";
     message = "You punch the first knight and quickly get into a brawl. The girl runs away.";
     i = 0;
@@ -363,7 +300,7 @@ choiceContainer.addEventListener("click", function (event) {
     const actualbadKnights = document.querySelector(".actualbadknights");
     actualbadKnights.style.display = "none";
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU8MVB7vUFdXwqobrXwhjfhmjaj00olenMYZYwvH13EA&s=10";
+    prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU8MVB7vUFdXwqobrXwhjfhmjaj00olenMYZYwvH13EA&s=10";
     prophecy.style.display = "block";
     message = "Why don't you join her, honey?";
     firstOutcomedialogue = true;
@@ -381,7 +318,7 @@ choiceContainer.addEventListener("click", function (event) {
     const actualbadKnights = document.querySelector(".actualbadknights");
     actualbadKnights.style.display = "none";
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://plain-apac-prod-public.komododecks.com/202611/15/dvoVdoxSFcfeDWn0Q3M6/image.png";
+    prophecy.querySelector(".fortune-teller").src = "https://plain-apac-prod-public.komododecks.com/202611/15/dvoVdoxSFcfeDWn0Q3M6/image.png";
     prophecy.style.display = "block";
     message = "You punch the first knight and quickly get into a brawl. The girl runs away.";
     i = 0;
@@ -398,7 +335,7 @@ choiceContainer.addEventListener("click", function (event) {
     const actualbadKnights = document.querySelector(".actualbadknights");
     actualbadKnights.style.display = "none";
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVZh0sLQQUrZ25TtJcrmNlJuGZVStcRg4YW6ByuUMX_A&s=10";
+    prophecy.querySelector(".fortune-teller").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVZh0sLQQUrZ25TtJcrmNlJuGZVStcRg4YW6ByuUMX_A&s=10";
     prophecy.style.display = "block";
     message = "You throw a rock to the side, aiming to distract them";
     i = 0;
@@ -416,7 +353,7 @@ choiceContainer.addEventListener("click", function (event) {
     const actualbadKnights = document.querySelector(".actualbadknights");
     actualbadKnights.style.display = "none";
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://static.vecteezy.com/system/resources/thumbnails/052/311/198/small_2x/chick-with-knife-in-hand-funny-illustration-duckling-with-knife-in-wing-funny-vector.jpg";
+    prophecy.querySelector(".fortune-teller").src = "https://static.vecteezy.com/system/resources/thumbnails/052/311/198/small_2x/chick-with-knife-in-hand-funny-illustration-duckling-with-knife-in-wing-funny-vector.jpg";
     prophecy.style.display = "block";
     message = "You feel the anger coursing through your vein as you spin your knife in your hand. Then *YOU HAVE NOT REACHED THE AGE FOR THIS CONTENT* basically you kill em";
     i = 0;
@@ -435,7 +372,7 @@ choiceContainer.addEventListener("click", function (event) {
     const actualbadKnights = document.querySelector(".actualbadknights");
     actualbadKnights.style.display = "none";
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://plain-apac-prod-public.komododecks.com/202611/15/kABTFs0wbUu0CrpRVZor/image.png";
+    prophecy.querySelector(".fortune-teller").src = "https://plain-apac-prod-public.komododecks.com/202611/15/kABTFs0wbUu0CrpRVZor/image.png";
     prophecy.style.display = "block";
     message = "You refuse to become them. Plus spending your life in a dungeon doesn't scream summer vacay.";
     i = 0;
@@ -486,11 +423,11 @@ function checkKnights() {
     knightUno.style.display = "none";
     knightTwo.style.display = "none";
     youngGirl.style.display = "none";
-    background.style.backgroundImage ='url("https://media.istockphoto.com/id/1269719686/photo/european-medieval-or-fantasy-town-square-on-a-sunny-day.jpg?s=612x612&w=0&k=20&c=mht4VcuaDug1plQ17MIdc9lxkO1OFESqICHPJs8alwY=")';
+    background.style.backgroundImage = 'url("https://media.istockphoto.com/id/1269719686/photo/european-medieval-or-fantasy-town-square-on-a-sunny-day.jpg?s=612x612&w=0&k=20&c=mht4VcuaDug1plQ17MIdc9lxkO1OFESqICHPJs8alwY=")';
     const actualbadKnights = document.querySelector(".actualbadknights");
     actualbadKnights.style.display = "block";
     const prophecy = document.querySelector(".prophecy");
-    prophecy.querySelector(".fortune-teller").src ="https://therebelution.com/wp-content/uploads/2006/08/lancelot_header.jpg";
+    prophecy.querySelector(".fortune-teller").src = "https://therebelution.com/wp-content/uploads/2006/08/lancelot_header.jpg";
     prophecy.style.display = "block";
     GOTTACATCHEMALL.textContent = "";
     choiceContainer.style.display = "none";
