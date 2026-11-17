@@ -50,6 +50,8 @@ oohooh.textContent = "You got prophecy? ehehheheh";
 oohooh.style.display = "none";
 button.style.display = "none";
 second.style.display = "none";
+firstKill.style.display = "none";
+firstMercy.style.display = "none";
 choiceContainer.appendChild(button);
 choiceContainer.appendChild(second);
 choiceContainer.appendChild (oohooh);
