@@ -7,7 +7,7 @@ const useWords = document.createElement("button");
 const useActions = document.createElement("button");
 const firstKill = document.querySelector(".firstkill");
 const firstMercy = document.querySelector(".firstmercy");
-firstKill.textContent = "Kill those *****";
+firstKill.textContent = "Kill those";
 firstMercy.textContent = "Leave them beaten up";
 const choiceContainer = document.querySelector("#choices-choices-choices");
 useWords.textContent = "Leave her alone!!!";
@@ -67,7 +67,7 @@ setTimeout(() => {
   background.style.animation = "OMGitsarandomtown 2s forwards";
   elera.style.display = "block";
   elera.style.opacity = "1";
-}, 105300);
+}, 67000);
 function typewriter() {
 if (i < message.length) {
 GOTTACATCHEMALL.textContent += message[i];
