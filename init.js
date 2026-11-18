@@ -50,6 +50,8 @@ oohooh.textContent = "You got prophecy? ehehheheh";
 oohooh.style.display = "none";
 button.style.display = "none";
 second.style.display = "none";
+roundWay.style.display = "none";
+straightWay.style.display = "none";
 firstKill.style.display = "none";
 firstMercy.style.display = "none";
 choiceContainer.appendChild(button);
@@ -58,6 +60,8 @@ choiceContainer.appendChild (oohooh);
 choiceContainer.appendChild (whatchaon);
 choiceContainer.appendChild(useWords);
 choiceContainer.appendChild(useActions);
+choiceContainer.appendChild(roundWay);
+choiceContainer.appendChild(straightWay);
 choiceContainer.appendChild(firstKill);
 choiceContainer.appendChild(firstMercy);
 choiceContainer.style.display = "none";
@@ -193,10 +197,10 @@ if (event.code === "Space" && !typing && firstOutcomedialogue) {
   choiceContainer.style.display = "flex";
   useActions.style.display = "none";
   useWords.style.display = "none";
-  straightWay.style.display = "none";
-  roundWay.style.display = "none";
-  firstKill.style.display="inline-block";
-  firstMercy.style.display="inline-block";
+  straightWay.style.display = "inline-block";
+  roundWay.style.display = "inline-block";
+  firstKill.style.display="none";
+  firstMercy.style.display="none";
 }
 if (event.code === "Space" && !typing && talkingToFortune && dialogueStage !==5) {
 event.preventDefault();
