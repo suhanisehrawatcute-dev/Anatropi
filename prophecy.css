@@ -1,0 +1,54 @@
+
+body {
+    margin: 0;
+    text-align: center;
+    background-color: #783511;
+    color: #4A3022;
+    font-family: "Beth Ellen", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+h1{color: #E8D5A3;
+    font-family: "Beth Ellen", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.otherfounder {
+    font-family: "Homemade Apple", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+p {
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+.script {
+    max-width: 750px;
+    margin: 10px auto;
+    padding: 40px 25px;
+    background-color: #E8D5A3;
+    width: 90%;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.script p{
+    display: none;
+}
+#continueButton {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    padding: 6px 18px;
+    font-size: 14px;
+    width: auto;
+    background-color: #E8D5A3;
+    border: 1px solid #9A7954;
+    font-family: "Beth Ellen", cursive;
+    cursor: pointer;
+}

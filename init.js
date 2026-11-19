@@ -531,3 +531,7 @@ typewriter();
 return;
 } 
 }
+if (event.code === "Space" && !typing && dialogueStage === 12){
+  event.preventDefault();
+  window.location.hred = "prophecy.html";
+}
