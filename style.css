@@ -1,286 +1,4 @@
 body {
-    margin: 0; 
-    padding: 0;
-}
-
-#app {
-    width: 100vw;
-    height: 100vh;
-    font-family: "Libre Franklin", sans-serif;
-    perspective: 240px;
-    perspective-origin: center 15%;
-    overflow: hidden;
-}
-
-.background {
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background: no-repeat center/cover url("https://cdn.wallpapersafari.com/38/0/tNfnSd.png");
-    z-index: -1;
-}
-
-.fade {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 40vh;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 1) 25%,
-        rgba(0, 0, 0, 0.25) 75%,
-        rgba(0, 0, 0, 0) 100%
-    );
-    z-index: 10;
-    pointer-events: none;
-}
-
-.text-container {
-    position: relative;
-   width: 100%;  
-   height: 100%;
-   transform: rotateX(64deg) scale(0.55, 0.3) translateY(120vh);
-animation: 93.3s linear 12s forwards translateText, 2s linear 91s forwards StacysMom;}
-@keyframes StacysMom {
-     100% { opacity: 0; }
-    75% { opacity: 1; }
-    25% { opacity: 1; }
-    0% { opacity: 1;}
-}
-.text {
-   font-size: 5vh;
-   color: #face1d;
-   text-align: justify;
-}
-
-@keyframes translateText {
-    0% {
-         transform: rotateX(64deg) scale(0.55, 0.3) translateY(120vh); 
-    }
-    100% {
-           transform: rotateX(64deg) scale(0.55, 0.3) translateY(-400vh);
-    }
-}
-.long-time {
-    position: absolute;
-    top: 40%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    color: #b9eaff;
-    font-family: Arial, sans-serif;
-    font-size: clamp(24px, 4vw, 48px);
-    line-height: 1.5;
-    opacity: 0;
-    z-index: 5;
-    animation: longTime 6s ease-in-out 1s forwards;
-}
-
-@keyframes longTime {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    75% { opacity: 1; }
-    100% { opacity: 0;}
-}
-
-.title-card {
-    position: absolute;
-    top: 30%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    color:#ffe81d;
-    font-family: Arial Black, Impact, sans-serif;
-    font-size: clamp(70px, 15vw, 180px);
-    line-height: 0.75;
-    -webkit-text-stroke: 2px #ffe81f;
-    opacity: 0;
-    z-index: 11;
-    animation: titleZoom 5s ease-in 7s forwards;
-}
-@keyframes titleZoom {
-    0% {
-        opacity: 0;
-        transform: scale(3);
-    }
-    10% {
-        opacity: 1;
-        transform: scale(3);
-    }
-    75% {
-        opacity: 1;
-        transform: scale(0.5);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0.05);
-
-    }
-}
-#choices-choices-choices {
-    display: none;
-    position: absolute;
-    left: 2%;
-    right: 2%;
-    bottom: 2%;
-    z-index: 2;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-#choices-choices-choices button{
-    background: #db905d;
-    width: 200px;
-    height: 65px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
-    padding: 10px;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-size: 16px;
-}
-.town-start {
-    position: fixed;
-    inset:0;
-    background-image: url(https://plain-apac-prod-public.komododecks.com/202610/18/dyxzSSGFxjdmns2sAP0a/image.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0;
-    z-index: 1;
-    animation: none;
-}
-@keyframes OMGitsarandomtown {
-    to {opacity: 1;}
-}
-.screen-fade {
-    position: fixed;
-    inset: 0;
-    background: black;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 100;
-    animation: sceneTransition 5s ease-in 53s forwards;
-}
-@keyframes sceneTransition {
-    0% { opacity: 0; }
-    33% { opacity: 1; }
-    66% { opacity: 1; }
-    100% { opacity: 0; }
-}
-.elera {
-    background-image: url(https://plain-apac-prod-public.komododecks.com/202610/18/uzTefmlotx9OTWdDu6Fw/image.png);
-    width: 48px;
-    height:64px;
-    position: fixed;
-    left: 681px;
-    top: 513px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 2;
-    opacity: 0;
-    animation: none;
-}
-@keyframes ALEXANDERHAMILTON {
-    to {opacity: 1}
-}
-.tellerpath {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 153px;
-    height: 120px;
-    opacity: 0;
-    pointer-events: none;
-}
-.fortune {
-    position: fixed;
-    left: 1075px;
-    top: 501px;
-    width: 81px;
-    height: 79px;
-    pointer-events: none;
-}
-.prophecy {
-    position: fixed;
-    inset: 0;
-    z-index: 10;
-    display: none;
-    pointer-events: none;
-}
-.fortune-teller {
-    position: absolute;
-    left: 4%;
-    bottom: 145px;
-    height: 65;
-    max-width: 50vw;
-    object-fit: contain;
-    object-position: bottom;
-}
-.TO-BE-OR-NOT-TO-BE {
-    position: absolute;
-    left: 2%;
-    right: 2%;
-    bottom: 2%;
-    min-height: 110px;
-    box-sizing: border-box;
-    padding: 20px 28px 35px;
-    background: #f2d890;
-    border: 5px solid #726540;
-    border-radius: 15px;
-    color: #202942;
-        font-family: monospace;
-        font-size: clamp(16px, 2vw, 25px);
-        pointer-events: auto;
-}
-#that-is-the-question {
-    margin: 0;
-}
-.dialouge-arrow {
-    position: absolute;
-    right: 20px;
-    bottom: 12px;}
-    .knight-uno {
-        position: fixed;
-        width: 73px;
-        height: 87px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        left: 400px;
-        top: 300px;
-        display: none;
-        background-image: url("https://i.pinimg.com/736x/2d/b9/99/2db99912c2879d7547e27c316b97f59d.jpg");
-        z-index: 2;
-    }
-    .knight-two {
-        position: fixed;
-        width: 73px;
-        height: 87px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        left: 469px;
-        top: 300px;
-        display: none;
-        background-image: url("https://i.pinimg.com/736x/2d/b9/99/2db99912c2879d7547e27c316b97f59d.jpg");
-        z-index: 2;
-    }
-    .young-girl {
-        position: fixed;
-        width: 63px;
-        height: 69px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        left: 435px;
-        top: 360px;
-        display: none;
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAzrWybkPNCNXhDtpKWuDfYSfGfHqjaWksL3ldPrkJLQ&s=10");
-        z-index: 2;
-    } 
-    
-body {
     margin: 0;
     text-align: center;
     background-color: #783511;
@@ -289,12 +7,12 @@ body {
     font-weight: 400;
     font-style: normal;
 }
-h1{color: #E8D5A3;
+h1 {
+    color: #E8D5A3;
     font-family: "Beth Ellen", cursive;
     font-weight: 400;
     font-style: normal;
 }
-
 .otherfounder {
     font-family: "Homemade Apple", cursive;
     font-weight: 400;
@@ -316,15 +34,23 @@ p {
     flex-direction: column;
     justify-content: center;
 }
-
-.script p{
+.script p {
     display: none;
 }
-#continueButton {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    display: block;
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin: 20px auto;
+}
+#continueButton,#nextButton {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    display: inline-block;
     padding: 6px 18px;
     font-size: 14px;
     width: auto;
@@ -332,4 +58,7 @@ p {
     border: 1px solid #9A7954;
     font-family: "Beth Ellen", cursive;
     cursor: pointer;
+}
+#endingScene p {
+    color: #f6f4f0;
 }

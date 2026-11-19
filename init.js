@@ -7,8 +7,8 @@ const useWords = document.createElement("button");
 const useActions = document.createElement("button");
 const firstKill = document.createElement("button");
 const firstMercy = document.createElement("button");
-firstKill.textContent = "Kill those";
-firstMercy.textContent = "Leave them beaten up";
+firstKill.textContent = "Kill them";
+firstMercy.textContent = "Leave them";
 const choiceContainer = document.querySelector("#choices-choices-choices");
 useWords.textContent = "Leave her alone!!!";
 let fightingKnights = false;
@@ -27,8 +27,6 @@ roundWay.textContent = "Distract";
 straightWay.textContent = "Fight";
 roundWay.style.display = "none";
 straightWay.style.display = "none";
-choiceContainer.appendChild(straightWay);
-choiceContainer.appendChild(roundWay);
 const knightTwo = document.querySelector(".knight-two");
 const youngGirl = document.querySelector(".young-girl");
 const TOBEORNOTTOBE = document.querySelector(".TO-BE-OR-NOT-TO-BE");
@@ -41,12 +39,11 @@ whatchaon.style.display = "none";
 let firstOutcomedialogue = false;
 let knightIntroDialogue = false;
 let knightfightSceneDone = false;
-choiceContainer.appendChild(whatchaon);
 const GOTTACATCHEMALL = document.querySelector("#that-is-the-question");
 const continueText = document.querySelector(".dialouge-arrow");
 button.textContent = "What's ephemera?";
 second.textContent = "So...I heard something.";
-oohooh.textContent = "You got prophecy? ehehheheh";
+oohooh.textContent = "You had a prophecy for me?";
 oohooh.style.display = "none";
 button.style.display = "none";
 second.style.display = "none";
@@ -228,7 +225,7 @@ oohooh.style.display = "none";
 whatchaon.style.display = "inline-block";
 }
 else if (dialogueStage === 3) {
-message = "Goodbye little ephemeron, just remember that the line between saving a world and ruling it is thinner than you think...";
+message = "Goodbye little ephemeron, just remember that sometimes you can't change the future...";
 dialogueStage = 4;
 i = 0;
 GOTTACATCHEMALL.textContent = "";
@@ -265,7 +262,7 @@ if (event.code === "Space" && !typing && dialogueStage === 7){
   prophecy.style.display = "block";
   continueText.textContent = "";
   GOTTACATCHEMALL.textContent = "";
-  message = "You little, someone wants to pick a fight.";
+  message = "Someone wants to pick a fight.";
   dialogueStage = 8;
   i=0;
   typing = true;
@@ -277,7 +274,7 @@ if (dialogueStage === 8 && !typing && event.code === "Space") {
   prophecy.style.display = "block";
   continueText.textContent = "";
   GOTTACATCHEMALL.textContent = "";
-  message= "You try and your're winning against the knights";
+  message= "You throw sand into their eyes and you're winning against the knights";
   dialogueStage = 9;
   i=0;
   typing=true;
@@ -289,7 +286,7 @@ if (dialogueStage === 9 && !typing && event.code === "Space") {
   prophecy.style.display = "block";
   continueText.textContent = "";
   GOTTACATCHEMALL.textContent = "";
-  message= "You get both into the ground and as you remmeber the look on the girl's face, you realize you need to mak ac choice";
+  message= "As you throw more sand into their eyes, you realize you have a choice to make.";
   dialogueStage= 10;
   i=0;
   typing=true;
@@ -336,6 +333,24 @@ prophecy.style.display = "block";
   dialogueStage=12;
   typing=true;
   typewriter();
+}
+if (event.code === "Space" && !typing && dialogueStage === 12){
+  event.preventDefault();
+const prophecy = document.querySelector(".prophecy");
+prophecy.querySelector(".fortune-teller").src="https://media.gettyimages.com/id/485865905/photo/working-to-death-business-mans-skeleton-using-laptop-in-office.jpg?s=170667a&w=gi&k=20&c=FROyzBcicISk56ms4asKdo--fmk-4zi0YF0sz9dXSYQ=";
+prophecy.style.display = "block";
+  continueText.textContent="";
+  GOTTACATCHEMALL.textContent="";
+message ="You pick up a note as the knights lie motionless on the ground."  
+i=0;
+  dialogueStage=13;
+  typing=true;
+  typewriter();
+}
+
+if (event.code === "Space" && !typing && dialogueStage === 13){
+  event.preventDefault();
+  window.location.href = "prophecy.html";
 }
 });
 
@@ -436,7 +451,7 @@ if (event.target===firstKill){
   const prophecy = document.querySelector(".prophecy");
   prophecy.querySelector(".fortune-teller").src="https://static.vecteezy.com/system/resources/thumbnails/052/311/198/small_2x/chick-with-knife-in-hand-funny-illustration-duckling-with-knife-in-wing-funny-vector.jpg";
   prophecy.style.display="block";
-  message = "You feel the anger coursing through your vein as you spin your knife in your hand. Then *YOU HAVE NOT REACHED THE AGE FOR THIS CONTENT* basically you kill em";
+  message = "You feel the anger coursing through your vein as you spin your knife in your hand. Then *YOU HAVE NOT REACHED THE AGE FOR THIS CONTENT*";
   i = 0;
   GOTTACATCHEMALL.textContent = "";
   typing = true;
@@ -530,8 +545,4 @@ typing = true;
 typewriter();
 return;
 } 
-}
-if (event.code === "Space" && !typing && dialogueStage === 12){
-  event.preventDefault();
-  window.location.hred = "prophecy.html";
 }

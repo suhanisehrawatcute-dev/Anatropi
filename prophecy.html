@@ -1,50 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-<title>The Past of Sola</title>
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Past of Sola</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+    </head>
     <body>
-        <h1>The Prophecy</h1>
-        <div class= "script">
-        <p>Heart of gold, haven't you heard?<br>
-Where is mama?<br>
-Where did she go?<br>
-Nobody knows<br>
-Nobody knows<br>
-An empty chair, an empty home<br>
-Heart of gold, do you know?<br>
-Heart of gold, you do know.</p>
-
-<p>The blood mixes, the years go by<br>
-Each and every memory is a lie,<br>
-I P K and L are the forgotten names<br>
-They extinguished their own flame<br>
-Mama's daughter doesn't live here anymore<br>
-She went out the door. </p>
-<p class="otherfounder">I couldn't let it go<br> 
-So in the moment, as the shadows grow<br>
-I made sure the future was secure<br>
-Just in case there was a permanent cure<br> </p>
-<p class="otherfounder">Forgotten blood and heart of gold,<br>
-Secrets you two hold<br>
-There are two pairs in a deck of cards<br>
-In case one is in shards.<br> </p>
-<p>We tied the final thread<br>
-Somehow we're not dead<br>
-We tried our best<br>
-We hope it'll withstand the test.<br></p>
-<p>Sola is a place of outcasts.<br>
-Here, you walk through the past, our past.</p>
-</div>
-<button id="continueButton">Reveal</button>
-<script src="init.js"></script>
+        <h1>The Fortune Teller's Note</h1>
+        <div class="script">
+            <p>Hi, little emphermeron.<br>
+            I told you something about not preventing the future, right?<br>
+            The knights are going to come after you.<br>
+            They are going to try and kill you.<br>
+            This time, you don't have a choice.</p>
+            <p>You must run.<br>
+            Run far away and don't look back.<br>
+            I know you want to fight them, but you can't.<br>
+            Running feels like the wrong choice<br>
+            But if you fight them, you will die.</p>
+            <p>Survive, little emphermeron.<br>
+            Survive and live to see another day.<br>
+            You can change the future.<br>
+            But you must live to see it.</p>
+        </div>
+        <div class="button-container">
+            <button id="continueButton">Reveal</button>
+            <button id="nextButton" style="display: none;">Next</button>
+        </div>
+        <div id="endingScene" style="display: none;">
+            <h1>The End</h1>
+            <p>Fate can't be diverted...no matter what we do.</p>
+        </div>
+        <script src="prophecy.js"></script>
     </body>
 </html>
