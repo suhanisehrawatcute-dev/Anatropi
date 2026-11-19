@@ -127,16 +127,22 @@ animation: 93.3s linear 12s forwards translateText, 2s linear 91s forwards Stacy
     z-index: 2;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 #choices-choices-choices button{
     background: #db905d;
-    Width: 100px;
-    height: 50px;
+    width: 200px;
+    height: 65px;
     display:flex;
     align-items: center;
     justify-content: center;
     margin: 5px;
-    cursor: pointer;}
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 18px;
+}
 .town-start {
     position: fixed;
     inset:0;
@@ -273,4 +279,3 @@ animation: 93.3s linear 12s forwards translateText, 2s linear 91s forwards Stacy
         background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAzrWybkPNCNXhDtpKWuDfYSfGfHqjaWksL3ldPrkJLQ&s=10");
         z-index: 2;
     } 
-    

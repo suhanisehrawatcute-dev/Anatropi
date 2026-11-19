@@ -317,7 +317,7 @@ if (dialogueStage === 10.5 && season25 === "mercy" && !typing && event.code === 
   prophecy.querySelector(".fortune-teller").src="https://plain-apac-prod-public.komododecks.com/202611/15/zzsnK5AV31MVOCEPOIrQ/image.png";
   continueText.textContent="";
   GOTTACATCHEMALL.textContent="";
-  message = "As you push both knights, they slip on a puddle.";
+  message = "You beat the knights up badly, and you wonder if being dead is a mercy. As you push them to the ground one by one, the knights slip.";
   i=0;
   dialogueStage = 11;
   typing = true;
@@ -326,9 +326,12 @@ if (dialogueStage === 10.5 && season25 === "mercy" && !typing && event.code === 
 }
 if (event.code === "Space" && !typing && dialogueStage === 11){
   event.preventDefault();
+const prophecy = document.querySelector(".prophecy");
+prophecy.querySelector(".fortune-teller").src="https://media.gettyimages.com/id/485865905/photo/working-to-death-business-mans-skeleton-using-laptop-in-office.jpg?s=170667a&w=gi&k=20&c=FROyzBcicISk56ms4asKdo--fmk-4zi0YF0sz9dXSYQ=";
+prophecy.style.display = "block";
   continueText.textContent="";
   GOTTACATCHEMALL.textContent="";
-  message = "The knights take their final breath. They're dead.";
+  message = "As the knights lay on the grounds, they take their final breath. They're dead.";
   i=0;
   dialogueStage=12;
   typing=true;
