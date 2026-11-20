@@ -13,7 +13,6 @@ const choiceContainer = document.querySelector("#choices-choices-choices");
 useWords.textContent = "Leave her alone!!!";
 let fightingKnights = false;
 useActions.textContent = "Punch the guard";
-useWords.textContent = "YOU BAD WEBSITE!!";
 useWords.style.display = "none";
 useActions.style.display = "none";
 const tellerPath = document.querySelector(".tellerpath");

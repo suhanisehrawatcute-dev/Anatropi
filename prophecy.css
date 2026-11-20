@@ -40,10 +40,9 @@ p {
     display: none;
 }
 #continueButton {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    display: block;
+    position: static;
+    transform: none;
+    display: inline-block;
     padding: 6px 18px;
     font-size: 14px;
     width: auto;
@@ -51,4 +50,24 @@ p {
     border: 1px solid #9A7954;
     font-family: "Beth Ellen", cursive;
     cursor: pointer;
+}
+#nextButton {
+    padding: 6px 18px;
+    font-size: 14px;
+    width: auto;
+    background-color: #E8D5A3;
+    border: 1px solid #9A7954;
+    font-family: "Beth Ellen", cursive;
+    cursor: pointer;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin: 20px auto;
+}
+#endingScene p {
+    color: #f6f4f0;
 }
