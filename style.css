@@ -141,7 +141,7 @@ animation: 93.3s linear 12s forwards translateText, 2s linear 91s forwards Stacy
     padding: 10px;
     box-sizing: border-box;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 13px;
 }
 .town-start {
     position: fixed;
@@ -215,7 +215,6 @@ animation: 93.3s linear 12s forwards translateText, 2s linear 91s forwards Stacy
     position: absolute;
     left: 4%;
     bottom: 145px;
-    height: 65px;
     max-width: 50vw;
     object-fit: contain;
     object-position: bottom;
