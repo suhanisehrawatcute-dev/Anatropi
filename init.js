@@ -71,7 +71,7 @@ setTimeout(() => {
   background.style.animation = "OMGitsarandomtown 2s forwards";
   elera.style.display = "block";
   elera.style.opacity = "1";
-}, 54400);
+}, 54700);
 function typewriter() {
 if (i < message.length) {
 GOTTACATCHEMALL.textContent += message[i];
