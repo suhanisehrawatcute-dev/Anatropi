@@ -506,7 +506,7 @@ elera.style.display = "none";
 knightUno.style.display = "none";
 knightTwo.style.display = "none";
 youngGirl.style.display = "none";
-background.style.backgroundImage = 'url("https://media.istockphoto.com/id/1269719686/photo/european-medieval-or-fantasy-town-square-on-a-sunny-day.jpg?s=612x612&w=0&k20&c=mht4VcuaDug1plQ17MIdc9lxkO1OFESqICHPJs8alwY=")';
+background.style.backgroundImage = 'url("https://plain-apac-prod-public.komododecks.com/202611/22/S7uXet3FfO8RF90luomI/image.png")';
 const actualbadKnights = document.querySelector(".actualbadknights");
 actualbadKnights.style.display = "block";
 const prophecy = document.querySelector(".prophecy");
