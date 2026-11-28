@@ -23,6 +23,19 @@ Anatropi is an interactive, story-driven game where you play as Elera, an orphan
 
 https://suhanisehrawatcute-dev.github.io/Anatropi/
 
+## How to Play
+### Use the arrow keys to play.
+1. Finish reading the introduction.
+2. Follow the path to the left.
+3. Overlap with the fortune teller (the purple image).
+4. Read through the dialogue and make your choices.
+5. Once the fortune teller's interaction is complete, overlap with either the knights or the girl.
+6. Continue through their dialogue and choices until you reach the fortune teller's note.
+7. Press **Reveal** to reveal the note.
+8. Once you've finished reading, you have two options:
+   - **Re-read** to read the note again.
+   - **Next** to continue to the end of the game.
+
 ## Getting Started
 
 ### Dependencies
